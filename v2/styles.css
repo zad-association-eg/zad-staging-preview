@@ -5203,4 +5203,56 @@ footer{
     color:inherit!important
   }
 }
+/* =========================================================
+   HEADER NAV — ICE WHITE HOVER / ACTIVE FIX
+   ========================================================= */
 
+.site-header .main-nav a:hover,
+.site-header .main-nav a.active,
+.site-header .main-nav a[aria-current="page"]{
+  background:none !important;
+  -webkit-background-clip:initial !important;
+  background-clip:initial !important;
+
+  color:#075f57 !important;
+  -webkit-text-fill-color:#075f57 !important;
+
+  filter:none !important;
+
+  text-shadow:
+    0 0 10px rgba(10,167,145,.16),
+    0 0 18px rgba(54,216,227,.10) !important;
+}
+
+.site-header .main-nav a:hover{
+  color:#0a7469 !important;
+  -webkit-text-fill-color:#0a7469 !important;
+}
+
+.site-header .main-nav a.active,
+.site-header .main-nav a[aria-current="page"]{
+  color:#064a45 !important;
+  -webkit-text-fill-color:#064a45 !important;
+  font-weight:900;
+}
+
+.site-header .main-nav a:hover::after,
+.site-header .main-nav a.active::after,
+.site-header .main-nav a[aria-current="page"]::after{
+  opacity:1 !important;
+  transform:scaleX(1) !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #08a991,
+      #34d8e4,
+      #08a991,
+      transparent
+    ) !important;
+
+  box-shadow:
+    0 0 8px rgba(52,216,228,.55),
+    0 0 14px rgba(8,169,145,.28) !important;
+}
