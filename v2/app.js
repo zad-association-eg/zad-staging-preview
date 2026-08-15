@@ -1,21 +1,25 @@
 (() => {
-  const hydrateLogos = async () => {
+  const hydrateLogos = () => {
     const logos = [...document.querySelectorAll('img[data-zad-logo]')];
     if (!logos.length) return;
-    try {
-      const response = await fetch('../assets/zad-logo.webp.b64.txt', { cache: 'force-cache' });
-      if (!response.ok) throw new Error('logo');
-      const base64 = (await response.text()).replace(/\s+/g, '');
-      const source = `data:image/webp;base64,${base64}`;
-      logos.forEach(img => img.src = source);
-    } catch {
-      logos.forEach(img => {
-        img.style.display = 'none';
-        img.closest('.brand,.footer-brand,.intro-brand,.assistant-head')?.classList.add('logo-fallback');
-      });
-    }
+    const source = './assets/logo-flat.webp';
+    logos.forEach(img => {
+      img.src = source;
+    });
   };
   hydrateLogos();
+  const logoStyle = document.createElement('style');
+  logoStyle.textContent = `
+    .intro-brand img{width:min(240px,58vw)!important;height:auto!important;max-height:240px!important;object-fit:contain!important;margin-bottom:18px!important;filter:drop-shadow(0 0 34px rgba(43,230,195,.34)) drop-shadow(0 0 18px rgba(230,197,107,.18))!important;border-radius:50%;}
+    .intro-brand:before,.intro-brand:after{content:"";position:absolute;left:50%;top:106px;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;}
+    .intro-brand:before{width:290px;height:290px;border:1px solid rgba(43,230,195,.26);box-shadow:0 0 34px rgba(43,230,195,.12),inset 0 0 34px rgba(43,230,195,.06);animation:zadOrbit 9s linear infinite;}
+    .intro-brand:after{width:330px;height:210px;border:1px solid rgba(230,197,107,.2);transform:translate(-50%,-50%) rotate(-10deg);animation:zadOrbitGold 12s linear infinite reverse;}
+    .brand img,.footer-brand img,.assistant-head img,.identity-visual img{object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 16px rgba(43,230,195,.22));}
+    @keyframes zadOrbit{to{transform:translate(-50%,-50%) rotate(360deg)}}
+    @keyframes zadOrbitGold{to{transform:translate(-50%,-50%) rotate(350deg)}}
+    @media(max-width:620px){.intro-brand img{width:min(200px,58vw)!important}.intro-brand:before{width:238px;height:238px;top:88px}.intro-brand:after{width:275px;height:175px;top:88px}}
+  `;
+  document.head.appendChild(logoStyle);
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const intro = document.getElementById('intro');
   const introSkip = document.getElementById('introSkip');
