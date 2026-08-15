@@ -816,7 +816,290 @@
   /* =========================================================
      FINAL INITIAL SYNC
   ========================================================= */
+  /* =========================================================
+     PREMIUM TITLE SCROLL REVEAL
+     Word-by-word scroll illumination for H1 / H2 / H3
+  ========================================================= */
 
+  const titleRevealHeadings = $$('h1,h2,h3')
+    .filter(heading => !heading.closest('.assistant-panel'));
+
+  const clampTitleProgress = (value, min = 0, max = 1) =>
+    Math.min(max, Math.max(min, value));
+
+  const titleNodeIsAccent = (node, heading) => {
+    const parent = node.parentElement;
+
+    if (!parent) return false;
+
+    if (parent.closest('em')) {
+      return true;
+    }
+
+    if (
+      heading.matches('.hero h1') &&
+      parent.closest('span')
+    ) {
+      return true;
+    }
+
+    return false;
+  };
+
+  const splitTitleForReveal = heading => {
+    if (
+      !heading ||
+      heading.dataset.fxSplit === '1'
+    ) {
+      return;
+    }
+
+    const walker = document.createTreeWalker(
+      heading,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode(node) {
+          if (
+            !node.nodeValue ||
+            !node.nodeValue.trim()
+          ) {
+            return NodeFilter.FILTER_REJECT;
+          }
+
+          const parent = node.parentElement;
+
+          if (!parent) {
+            return NodeFilter.FILTER_REJECT;
+          }
+
+          if (
+            parent.closest(
+              'script,style,.fx-title-word'
+            )
+          ) {
+            return NodeFilter.FILTER_REJECT;
+          }
+
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      }
+    );
+
+    const textNodes = [];
+
+    while (walker.nextNode()) {
+      textNodes.push(walker.currentNode);
+    }
+
+    textNodes.forEach(node => {
+      const text = node.nodeValue;
+      const pieces = text.split(/(\s+)/);
+
+      const fragment =
+        document.createDocumentFragment();
+
+      const accent =
+        titleNodeIsAccent(node, heading);
+
+      pieces.forEach(piece => {
+        if (!piece) return;
+
+        if (/^\s+$/.test(piece)) {
+          fragment.appendChild(
+            document.createTextNode(piece)
+          );
+
+          return;
+        }
+
+        const word =
+          document.createElement('span');
+
+        word.className = accent
+          ? 'fx-title-word fx-accent'
+          : 'fx-title-word';
+
+        word.textContent = piece;
+
+        fragment.appendChild(word);
+      });
+
+      node.replaceWith(fragment);
+    });
+
+    heading.classList.add('fx-title-ready');
+    heading.dataset.fxSplit = '1';
+  };
+
+  const prepareTitleReveal = () => {
+    if (reduceMotion) {
+      return;
+    }
+
+    titleRevealHeadings.forEach(
+      splitTitleForReveal
+    );
+  };
+
+  let titleRevealTicking = false;
+
+  const updateTitleReveal = () => {
+    if (reduceMotion) {
+      titleRevealTicking = false;
+      return;
+    }
+
+    const viewportHeight =
+      window.innerHeight ||
+      document.documentElement.clientHeight;
+
+    titleRevealHeadings.forEach(heading => {
+      const words =
+        $$('.fx-title-word', heading);
+
+      if (!words.length) return;
+
+      const rect =
+        heading.getBoundingClientRect();
+
+      /*
+        يبدأ التأثير عندما يقترب العنوان من منطقة القراءة،
+        ثم يضيء الكلمات تدريجيًا مع السكرول.
+        عند الرجوع لأعلى ينعكس التأثير تلقائيًا.
+      */
+
+      const start =
+        viewportHeight * 0.88;
+
+      const travel =
+        Math.max(
+          viewportHeight * 0.34,
+          rect.height + 90
+        );
+
+      const overallProgress =
+        clampTitleProgress(
+          (start - rect.top) / travel
+        );
+
+      words.forEach((word, index) => {
+        const wordProgress =
+          clampTitleProgress(
+            overallProgress *
+              (words.length + 2.5) -
+              index
+          );
+
+        const eased =
+          1 -
+          Math.pow(
+            1 - wordProgress,
+            3
+          );
+
+        const accent =
+          word.classList.contains(
+            'fx-accent'
+          );
+
+        const from = accent
+          ? [66, 118, 108]
+          : [92, 118, 113];
+
+        const to = accent
+          ? [105, 255, 219]
+          : [241, 255, 252];
+
+        const red =
+          Math.round(
+            from[0] +
+            (to[0] - from[0]) *
+              eased
+          );
+
+        const green =
+          Math.round(
+            from[1] +
+            (to[1] - from[1]) *
+              eased
+          );
+
+        const blue =
+          Math.round(
+            from[2] +
+            (to[2] - from[2]) *
+              eased
+          );
+
+        word.style.color =
+          `rgb(${red},${green},${blue})`;
+
+        word.style.opacity =
+          String(
+            0.24 +
+            eased * 0.76
+          );
+
+        word.style.transform =
+          `translateY(${(1 - eased) * 0.12}em)`;
+
+        word.style.filter =
+          `blur(${(1 - eased) * 1.1}px)`;
+
+        if (eased > 0.6) {
+          const glow =
+            accent
+              ? 0.22 * eased
+              : 0.10 * eased;
+
+          word.style.textShadow =
+            `0 0 18px rgba(83,240,214,${glow})`;
+        } else {
+          word.style.textShadow = 'none';
+        }
+      });
+    });
+
+    titleRevealTicking = false;
+  };
+
+  const requestTitleRevealUpdate = () => {
+    if (
+      reduceMotion ||
+      titleRevealTicking
+    ) {
+      return;
+    }
+
+    titleRevealTicking = true;
+
+    window.requestAnimationFrame(
+      updateTitleReveal
+    );
+  };
+
+  prepareTitleReveal();
+
+  if (!reduceMotion) {
+    updateTitleReveal();
+
+    window.addEventListener(
+      'scroll',
+      requestTitleRevealUpdate,
+      { passive: true }
+    );
+
+    window.addEventListener(
+      'resize',
+      requestTitleRevealUpdate,
+      { passive: true }
+    );
+
+    window.addEventListener(
+      'orientationchange',
+      requestTitleRevealUpdate
+    );
+  }
   syncHeader();
   syncActiveNav();
   syncResponsiveState();
