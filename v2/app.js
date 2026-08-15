@@ -2,7 +2,7 @@
   const hydrateLogos = () => {
     const logos = [...document.querySelectorAll('img[data-zad-logo]')];
     if (!logos.length) return;
-    const source = './assets/logo-flat.webp';
+    const source = './assets/zad-logo.png';
     logos.forEach(img => {
       img.src = source;
     });
