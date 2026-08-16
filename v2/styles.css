@@ -7471,4 +7471,22 @@ html[dir="ltr"] .ticker-window{
   order:1;
   flex:1 1 auto;
   min-width:0;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+
+html[dir="ltr"] .ticker-track{
+  height:100%;
+  display:flex;
+  align-items:center;
+}
+
+html[dir="ltr"] .ticker-group{
+  height:100%;
+  align-items:center;
+}
+
+html[dir="ltr"] .ticker-item{
+  align-items:center;
 }
