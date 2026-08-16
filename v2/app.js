@@ -1103,5 +1103,418 @@
   syncHeader();
   syncActiveNav();
   syncResponsiveState();
+/* =========================================================
+   ZAD PANORAMA STUDIO
+   Project filters + cinematic lightbox
+========================================================= */
 
+const panoramaStudio = document.querySelector('#studio');
+
+if (
+  panoramaStudio &&
+  panoramaStudio.dataset.panoramaReady !== 'true'
+) {
+  panoramaStudio.dataset.panoramaReady = 'true';
+
+  const filterButtons = Array.from(
+    panoramaStudio.querySelectorAll(
+      '.studio-filters button[data-filter]'
+    )
+  );
+
+  const projectCards = Array.from(
+    panoramaStudio.querySelectorAll(
+      '.studio-project-card[data-type]'
+    )
+  );
+
+  const mediaButtons = Array.from(
+    panoramaStudio.querySelectorAll(
+      '.studio-media-open[data-studio-image]'
+    )
+  );
+
+
+  /* =====================================================
+     PROJECT FILTERS
+  ===================================================== */
+
+  const applyStudioFilter = filter => {
+    projectCards.forEach(card => {
+      const shouldShow =
+        filter === 'all' ||
+        card.dataset.type === filter;
+
+      card.classList.toggle(
+        'is-hidden',
+        !shouldShow
+      );
+
+      card.setAttribute(
+        'aria-hidden',
+        shouldShow ? 'false' : 'true'
+      );
+    });
+
+    filterButtons.forEach(button => {
+      const isActive =
+        button.dataset.filter === filter;
+
+      button.classList.toggle(
+        'active',
+        isActive
+      );
+
+      button.setAttribute(
+        'aria-pressed',
+        isActive ? 'true' : 'false'
+      );
+    });
+  };
+
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      applyStudioFilter(
+        button.dataset.filter || 'all'
+      );
+    });
+  });
+
+  applyStudioFilter('all');
+
+
+  /* =====================================================
+     CREATE CINEMATIC LIGHTBOX
+  ===================================================== */
+
+  const lightbox = document.createElement('div');
+
+  lightbox.className = 'studio-lightbox';
+
+  lightbox.setAttribute(
+    'role',
+    'dialog'
+  );
+
+  lightbox.setAttribute(
+    'aria-modal',
+    'true'
+  );
+
+  lightbox.setAttribute(
+    'aria-label',
+    'معرض صور مشروعات زاد'
+  );
+
+  lightbox.innerHTML = `
+    <div class="studio-lightbox-backdrop"></div>
+
+    <div class="studio-lightbox-shell">
+
+      <button
+        type="button"
+        class="studio-lightbox-close"
+        aria-label="إغلاق الصورة"
+      >
+        ×
+      </button>
+
+      <button
+        type="button"
+        class="studio-lightbox-nav studio-lightbox-prev"
+        aria-label="الصورة السابقة"
+      >
+        ‹
+      </button>
+
+      <figure class="studio-lightbox-stage">
+
+        <img
+          class="studio-lightbox-image"
+          src=""
+          alt=""
+        >
+
+        <figcaption class="studio-lightbox-caption">
+
+          <div>
+            <span class="studio-lightbox-kicker">
+              ZAD PANORAMA
+            </span>
+
+            <strong class="studio-lightbox-title"></strong>
+
+            <small class="studio-lightbox-location"></small>
+          </div>
+
+          <span class="studio-lightbox-counter"></span>
+
+        </figcaption>
+
+      </figure>
+
+      <button
+        type="button"
+        class="studio-lightbox-nav studio-lightbox-next"
+        aria-label="الصورة التالية"
+      >
+        ›
+      </button>
+
+    </div>
+  `;
+
+  document.body.appendChild(lightbox);
+
+
+  const lightboxImage =
+    lightbox.querySelector(
+      '.studio-lightbox-image'
+    );
+
+  const lightboxTitle =
+    lightbox.querySelector(
+      '.studio-lightbox-title'
+    );
+
+  const lightboxLocation =
+    lightbox.querySelector(
+      '.studio-lightbox-location'
+    );
+
+  const lightboxCounter =
+    lightbox.querySelector(
+      '.studio-lightbox-counter'
+    );
+
+  const closeButton =
+    lightbox.querySelector(
+      '.studio-lightbox-close'
+    );
+
+  const prevButton =
+    lightbox.querySelector(
+      '.studio-lightbox-prev'
+    );
+
+  const nextButton =
+    lightbox.querySelector(
+      '.studio-lightbox-next'
+    );
+
+  const backdrop =
+    lightbox.querySelector(
+      '.studio-lightbox-backdrop'
+    );
+
+
+  let activeMediaIndex = 0;
+  let previousFocus = null;
+
+
+  const getVisibleMedia = () =>
+    mediaButtons.filter(button => {
+      const card =
+        button.closest(
+          '.studio-project-card'
+        );
+
+      return (
+        card &&
+        !card.classList.contains(
+          'is-hidden'
+        )
+      );
+    });
+
+
+  const renderStudioMedia = index => {
+    const visibleMedia =
+      getVisibleMedia();
+
+    if (!visibleMedia.length) {
+      return;
+    }
+
+    activeMediaIndex =
+      (
+        index +
+        visibleMedia.length
+      ) %
+      visibleMedia.length;
+
+    const media =
+      visibleMedia[
+        activeMediaIndex
+      ];
+
+    const imageSource =
+      media.dataset.studioImage || '';
+
+    const title =
+      media.dataset.studioTitle ||
+      'مشروعات زاد';
+
+    const location =
+      media.dataset.studioLocation ||
+      '';
+
+    lightboxImage.src =
+      imageSource;
+
+    lightboxImage.alt =
+      title +
+      (
+        location
+          ? ` - ${location}`
+          : ''
+      );
+
+    lightboxTitle.textContent =
+      title;
+
+    lightboxLocation.textContent =
+      location;
+
+    lightboxCounter.textContent =
+      `${activeMediaIndex + 1} / ${visibleMedia.length}`;
+
+    const multiple =
+      visibleMedia.length > 1;
+
+    prevButton.disabled =
+      !multiple;
+
+    nextButton.disabled =
+      !multiple;
+  };
+
+
+  const openStudioLightbox =
+    media => {
+
+      const visibleMedia =
+        getVisibleMedia();
+
+      const index =
+        visibleMedia.indexOf(media);
+
+      previousFocus =
+        document.activeElement;
+
+      renderStudioMedia(
+        index >= 0 ? index : 0
+      );
+
+      lightbox.classList.add(
+        'is-open'
+      );
+
+      document.body.classList.add(
+        'studio-lightbox-open'
+      );
+
+      closeButton.focus();
+    };
+
+
+  const closeStudioLightbox =
+    () => {
+
+      lightbox.classList.remove(
+        'is-open'
+      );
+
+      document.body.classList.remove(
+        'studio-lightbox-open'
+      );
+
+      lightboxImage.removeAttribute(
+        'src'
+      );
+
+      if (
+        previousFocus &&
+        typeof previousFocus.focus ===
+          'function'
+      ) {
+        previousFocus.focus();
+      }
+    };
+
+
+  const showNextStudioMedia =
+    () => {
+      renderStudioMedia(
+        activeMediaIndex + 1
+      );
+    };
+
+
+  const showPreviousStudioMedia =
+    () => {
+      renderStudioMedia(
+        activeMediaIndex - 1
+      );
+    };
+
+
+  mediaButtons.forEach(media => {
+    media.addEventListener(
+      'click',
+      () => {
+        openStudioLightbox(media);
+      }
+    );
+  });
+
+
+  closeButton.addEventListener(
+    'click',
+    closeStudioLightbox
+  );
+
+  backdrop.addEventListener(
+    'click',
+    closeStudioLightbox
+  );
+
+  prevButton.addEventListener(
+    'click',
+    showPreviousStudioMedia
+  );
+
+  nextButton.addEventListener(
+    'click',
+    showNextStudioMedia
+  );
+
+
+  document.addEventListener(
+    'keydown',
+    event => {
+
+      if (
+        !lightbox.classList.contains(
+          'is-open'
+        )
+      ) {
+        return;
+      }
+
+      if (event.key === 'Escape') {
+        closeStudioLightbox();
+      }
+
+      if (event.key === 'ArrowRight') {
+        showNextStudioMedia();
+      }
+
+      if (event.key === 'ArrowLeft') {
+        showPreviousStudioMedia();
+      }
+    }
+  );
+}
 })();
