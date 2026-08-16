@@ -7497,3 +7497,24 @@ html[dir="ltr"] .ticker-item{
 html[dir="ltr"] .stats-wrap{
   margin-top:32px;
 }
+/* =========================================================
+   ENGLISH PROJECTS — TEXT DIRECTION
+========================================================= */
+
+html[dir="ltr"] .projects-section .head-ar{
+  direction:ltr;
+  text-align:left;
+  justify-self:start;
+}
+
+html[dir="ltr"] .projects-section .head-ar p{
+  direction:ltr;
+  text-align:left;
+  margin-left:0;
+  margin-right:auto;
+}
+
+html[dir="ltr"] .projects-section .head-ar h2{
+  direction:ltr;
+  text-align:left;
+}
