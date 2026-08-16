@@ -7443,6 +7443,14 @@ footer{
   .zad-project-card-media > img{
     transition:none !important;
   }
+
+}
+
+
+/* =========================================================
+   ENGLISH TICKER — LTR ALIGNMENT
+========================================================= */
+
 html[dir="ltr"] .ticker{
   display:flex;
   align-items:stretch;
@@ -7463,5 +7471,4 @@ html[dir="ltr"] .ticker-window{
   order:1;
   flex:1 1 auto;
   min-width:0;
-}
 }
