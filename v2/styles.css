@@ -8784,3 +8784,944 @@ html[dir="ltr"] .architecture-card .visual-title small{
   }
 
 }
+/* =========================================================
+   ZAD ENGLISH — MASTER FINAL RESPONSIVE FIX
+   Hero Background
+   Hamburger Menu
+   2x2 Stats
+   Chairman
+   Assistant
+   Footer
+========================================================= */
+
+
+/* =========================================================
+   01 — CHAIRMAN
+   REMOVE DECORATIVE NUMBER 01
+========================================================= */
+
+html[dir="ltr"] .leadership-section .leader-card-primary{
+  direction:ltr !important;
+  text-align:left !important;
+
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  justify-content:center !important;
+
+  padding:38px 42px !important;
+}
+
+html[dir="ltr"] .leadership-section .leader-card-primary .leader-icon{
+  display:none !important;
+}
+
+html[dir="ltr"] .leadership-section .leader-card-primary small{
+  position:static !important;
+
+  display:block !important;
+
+  margin:0 0 16px 0 !important;
+
+  direction:ltr !important;
+  text-align:left !important;
+
+  color:var(--teal2) !important;
+}
+
+html[dir="ltr"] .leadership-section .leader-card-primary h3{
+  width:100% !important;
+  max-width:100% !important;
+
+  margin:0 !important;
+
+  direction:ltr !important;
+  text-align:left !important;
+
+  line-height:1.35 !important;
+}
+
+html[dir="ltr"] .leadership-section .leader-card-primary i{
+  display:none !important;
+}
+
+
+/* =========================================================
+   02 — HERO
+   FULL CINEMATIC IMAGE BACKGROUND
+   NO IMAGE CARD
+========================================================= */
+
+html[dir="ltr"] .hero{
+  position:relative !important;
+
+  padding:0 !important;
+
+  overflow:hidden !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(1,18,21,.96) 0%,
+      rgba(1,20,23,.90) 28%,
+      rgba(1,21,24,.70) 55%,
+      rgba(1,18,21,.38) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,12,15,.14) 0%,
+      rgba(0,14,17,.24) 48%,
+      rgba(1,18,21,.88) 100%
+    ),
+    url("./assets/zayed-lagoons-sheikh-zayed-sunset-view.webp")
+    center 52% / cover no-repeat !important;
+
+  border-bottom:
+    1px solid rgba(93,235,211,.14) !important;
+}
+
+
+/* ambient cinematic light */
+
+html[dir="ltr"] .hero::before{
+  content:"" !important;
+
+  position:absolute !important;
+  inset:0 !important;
+
+  background:
+    radial-gradient(
+      circle at 78% 25%,
+      rgba(80,245,214,.12),
+      transparent 32%
+    ),
+    linear-gradient(
+      110deg,
+      rgba(3,86,79,.10),
+      transparent 45%
+    ) !important;
+
+  pointer-events:none !important;
+}
+
+
+/* remove old right-side image card completely */
+
+html[dir="ltr"] .hero-visual{
+  display:none !important;
+}
+
+
+/* hero becomes one premium content column */
+
+html[dir="ltr"] .hero-grid{
+  position:relative !important;
+  z-index:2 !important;
+
+  display:grid !important;
+  grid-template-columns:1fr !important;
+
+  align-items:center !important;
+
+  min-height:720px !important;
+}
+
+
+/* hero text */
+
+html[dir="ltr"] .hero-copy{
+  width:min(760px,100%) !important;
+  max-width:760px !important;
+
+  padding:
+    105px 0 78px !important;
+
+  direction:ltr !important;
+  text-align:left !important;
+}
+
+
+html[dir="ltr"] .hero .eyebrow{
+  direction:ltr !important;
+  text-align:left !important;
+
+  color:#75f1d8 !important;
+
+  text-shadow:
+    0 2px 14px rgba(0,0,0,.75) !important;
+}
+
+
+html[dir="ltr"] .hero h1{
+  direction:ltr !important;
+  text-align:left !important;
+
+  color:#f4fffc !important;
+
+  text-shadow:
+    0 5px 34px rgba(0,0,0,.78) !important;
+}
+
+
+html[dir="ltr"] .hero-lead{
+  max-width:650px !important;
+
+  direction:ltr !important;
+  text-align:left !important;
+
+  color:#d9eeeb !important;
+
+  text-shadow:
+    0 3px 18px rgba(0,0,0,.78) !important;
+}
+
+
+html[dir="ltr"] .hero-actions{
+  justify-content:flex-start !important;
+}
+
+
+html[dir="ltr"] .hero-proof{
+  width:fit-content !important;
+  max-width:100% !important;
+
+  direction:ltr !important;
+
+  background:
+    rgba(1,29,32,.54) !important;
+
+  border:
+    1px solid rgba(107,242,219,.12) !important;
+
+  border-radius:18px !important;
+
+  padding:14px 8px !important;
+
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+
+
+/* =========================================================
+   TABLET + MOBILE
+========================================================= */
+
+@media(max-width:1050px){
+
+
+  /* =======================================================
+     03 — HAMBURGER BUTTON
+  ======================================================= */
+
+  html[dir="ltr"] #navToggle{
+    position:relative !important;
+
+    display:block !important;
+
+    width:44px !important;
+    height:44px !important;
+
+    padding:8px !important;
+
+    border:
+      1px solid rgba(5,112,103,.16) !important;
+
+    border-radius:12px !important;
+
+    background:
+      rgba(3,102,93,.055) !important;
+
+    z-index:1002 !important;
+  }
+
+
+  html[dir="ltr"] #navToggle span{
+    display:block !important;
+
+    width:22px !important;
+    height:2.5px !important;
+
+    margin:4.5px auto !important;
+
+    border-radius:20px !important;
+
+    background:#08786f !important;
+
+    transform-origin:center !important;
+
+    transition:
+      transform .22s ease,
+      opacity .18s ease !important;
+  }
+
+
+  html[dir="ltr"]
+  #navToggle[aria-expanded="true"]
+  span:nth-child(1){
+    transform:
+      translateY(7px)
+      rotate(45deg) !important;
+  }
+
+
+  html[dir="ltr"]
+  #navToggle[aria-expanded="true"]
+  span:nth-child(2){
+    opacity:0 !important;
+  }
+
+
+  html[dir="ltr"]
+  #navToggle[aria-expanded="true"]
+  span:nth-child(3){
+    transform:
+      translateY(-7px)
+      rotate(-45deg) !important;
+  }
+
+
+  /* =======================================================
+     04 — MOBILE MENU
+     DARK PREMIUM PANEL
+  ======================================================= */
+
+  html[dir="ltr"] #mainNav{
+    position:fixed !important;
+
+    top:78px !important;
+    right:12px !important;
+    left:auto !important;
+
+    width:min(
+      330px,
+      calc(100vw - 24px)
+    ) !important;
+
+    max-height:
+      calc(100dvh - 96px) !important;
+
+    display:grid !important;
+    grid-template-columns:1fr !important;
+
+    gap:6px !important;
+
+    padding:10px !important;
+
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+
+    background:
+      linear-gradient(
+        155deg,
+        rgba(4,72,70,.99),
+        rgba(1,27,31,.995)
+      ) !important;
+
+    border:
+      1px solid rgba(117,255,231,.25) !important;
+
+    border-radius:20px !important;
+
+    box-shadow:
+      0 28px 75px rgba(0,0,0,.52),
+      0 0 34px rgba(55,226,198,.10)
+      !important;
+
+    backdrop-filter:blur(24px) !important;
+    -webkit-backdrop-filter:blur(24px) !important;
+
+    opacity:0 !important;
+    visibility:hidden !important;
+
+    pointer-events:none !important;
+
+    transform:
+      translateY(-10px)
+      scale(.98) !important;
+
+    transform-origin:top right !important;
+
+    transition:
+      opacity .22s ease,
+      transform .22s ease,
+      visibility .22s ease !important;
+
+    z-index:1001 !important;
+  }
+
+
+  html[dir="ltr"] #mainNav.open{
+    opacity:1 !important;
+    visibility:visible !important;
+
+    pointer-events:auto !important;
+
+    transform:none !important;
+  }
+
+
+  html[dir="ltr"] #mainNav a{
+    min-height:47px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+
+    padding:0 15px !important;
+
+    margin:0 !important;
+
+    direction:ltr !important;
+    text-align:left !important;
+
+    color:#f1fffc !important;
+
+    opacity:1 !important;
+    visibility:visible !important;
+
+    font-size:12px !important;
+    font-weight:800 !important;
+
+    line-height:1.2 !important;
+
+    text-shadow:
+      0 2px 9px rgba(0,0,0,.52) !important;
+
+    border:
+      1px solid rgba(130,255,233,.08) !important;
+
+    border-radius:13px !important;
+
+    background:
+      rgba(255,255,255,.045) !important;
+  }
+
+
+  html[dir="ltr"] #mainNav a:hover{
+    color:#ffffff !important;
+
+    background:
+      rgba(92,229,204,.13) !important;
+  }
+
+
+  html[dir="ltr"] #mainNav a.active{
+    color:#03332e !important;
+
+    background:
+      linear-gradient(
+        110deg,
+        #7af1d7,
+        #6ddfea
+      ) !important;
+
+    text-shadow:none !important;
+
+    border-color:transparent !important;
+  }
+
+
+  html[dir="ltr"] #mainNav a::after{
+    display:none !important;
+  }
+
+
+  /* =======================================================
+     05 — RESPONSIVE HERO
+  ======================================================= */
+
+  html[dir="ltr"] .hero{
+    background-position:
+      61% center !important;
+  }
+
+
+  html[dir="ltr"] .hero-grid{
+    min-height:610px !important;
+  }
+
+
+  html[dir="ltr"] .hero-copy{
+    width:min(680px,100%) !important;
+
+    padding:
+      72px 0 52px !important;
+  }
+
+
+  html[dir="ltr"] .hero h1{
+    max-width:620px !important;
+  }
+
+
+  html[dir="ltr"] .hero-lead{
+    max-width:560px !important;
+  }
+
+
+  /* =======================================================
+     06 — STATS
+     EXACT 2 COLUMNS / 2 ROWS
+  ======================================================= */
+
+  html[dir="ltr"] .stats-wrap{
+    padding:
+      18px 0 22px !important;
+
+    margin:0 !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel{
+    display:grid !important;
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr))
+      !important;
+
+    grid-template-rows:
+      repeat(2,minmax(94px,auto))
+      !important;
+
+    gap:4px !important;
+
+    width:100% !important;
+
+    padding:10px !important;
+
+    direction:ltr !important;
+
+    align-items:stretch !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel article{
+    display:grid !important;
+
+    grid-template-columns:
+      42px minmax(0,1fr)
+      !important;
+
+    grid-template-rows:
+      auto auto !important;
+
+    column-gap:12px !important;
+    row-gap:2px !important;
+
+    align-items:center !important;
+    align-content:center !important;
+
+    justify-items:start !important;
+    justify-content:stretch !important;
+
+    place-content:initial !important;
+
+    min-height:94px !important;
+
+    padding:
+      14px 12px !important;
+
+    direction:ltr !important;
+    text-align:left !important;
+
+    border:0 !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel article::after{
+    display:none !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel .stat-icon{
+    grid-column:1 !important;
+    grid-row:1 / 3 !important;
+
+    width:34px !important;
+
+    justify-self:start !important;
+    align-self:center !important;
+
+    margin:0 !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel article > div{
+    min-width:0 !important;
+
+    direction:ltr !important;
+    text-align:left !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel article b{
+    grid-column:2 !important;
+    grid-row:1 !important;
+
+    display:block !important;
+
+    width:100% !important;
+
+    margin:0 !important;
+
+    direction:ltr !important;
+    text-align:left !important;
+
+    font-size:
+      clamp(13px,2vw,17px)
+      !important;
+
+    line-height:1.25 !important;
+
+    white-space:nowrap !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel article small{
+    grid-column:2 !important;
+    grid-row:2 !important;
+
+    display:block !important;
+
+    width:100% !important;
+
+    margin:4px 0 0 !important;
+
+    direction:ltr !important;
+    text-align:left !important;
+
+    font-size:
+      clamp(7px,1.2vw,9px)
+      !important;
+
+    line-height:1.4 !important;
+  }
+
+
+  /* =======================================================
+     07 — CHAIRMAN MOBILE
+  ======================================================= */
+
+  html[dir="ltr"]
+  .leadership-section
+  .leader-card-primary{
+    min-height:170px !important;
+
+    padding:
+      24px 22px !important;
+
+    align-items:flex-start !important;
+
+    direction:ltr !important;
+    text-align:left !important;
+  }
+
+
+  html[dir="ltr"]
+  .leadership-section
+  .leader-card-primary small{
+    margin-bottom:12px !important;
+
+    text-align:left !important;
+  }
+
+
+  html[dir="ltr"]
+  .leadership-section
+  .leader-card-primary h3{
+    max-width:100% !important;
+
+    font-size:
+      clamp(18px,4.8vw,26px)
+      !important;
+
+    text-align:left !important;
+  }
+
+
+  /* =======================================================
+     08 — SMART ASSISTANT
+     QUICK BUTTONS ABOVE WELCOME
+  ======================================================= */
+
+  html[dir="ltr"] .assistant-body{
+    display:flex !important;
+    flex-direction:column !important;
+  }
+
+
+  html[dir="ltr"] .assistant-body .assistant-quick{
+    order:-2 !important;
+
+    position:static !important;
+
+    width:100% !important;
+
+    display:grid !important;
+
+    grid-template-columns:
+      repeat(3,minmax(0,1fr))
+      !important;
+
+    gap:7px !important;
+
+    margin:
+      0 0 10px !important;
+
+    padding:0 !important;
+  }
+
+
+  html[dir="ltr"] .assistant-body .assistant-quick button{
+    width:100% !important;
+
+    min-width:0 !important;
+    min-height:38px !important;
+
+    padding:
+      5px 6px !important;
+
+    direction:ltr !important;
+    text-align:center !important;
+
+    white-space:normal !important;
+
+    font-size:8px !important;
+    line-height:1.25 !important;
+  }
+
+
+  html[dir="ltr"] .assistant-welcome{
+    order:-1 !important;
+
+    direction:ltr !important;
+    text-align:left !important;
+  }
+
+
+  /* hide floating desktop assistant button on mobile/tablet */
+
+  html[dir="ltr"] .assistant-fab{
+    display:none !important;
+  }
+
+
+  /* =======================================================
+     09 — FOOTER
+     REMOVE LARGE EMPTY BLACK AREA
+  ======================================================= */
+
+  html[dir="ltr"] footer,
+  html[dir="ltr"] .site-footer{
+    min-height:0 !important;
+    height:auto !important;
+
+    margin:0 !important;
+
+    padding:
+      26px 0 76px !important;
+  }
+
+
+  html[dir="ltr"] .footer-main{
+    min-height:0 !important;
+
+    margin-bottom:0 !important;
+  }
+
+
+  html[dir="ltr"] .footer-brand{
+    min-height:0 !important;
+  }
+
+
+  html[dir="ltr"] .footer-links{
+    min-height:0 !important;
+  }
+
+
+  html[dir="ltr"] .footer-social{
+    margin-bottom:0 !important;
+  }
+
+
+  html[dir="ltr"] .developer-signature{
+    margin:
+      16px auto 5px !important;
+
+    padding:
+      12px 10px 7px !important;
+  }
+
+
+  html[dir="ltr"] .rights{
+    margin:0 !important;
+
+    padding:
+      8px 12px 4px !important;
+  }
+
+
+  html[dir="ltr"] .mobile-quick-bar{
+    right:8px !important;
+    left:8px !important;
+    bottom:7px !important;
+
+    z-index:1000 !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:620px){
+
+
+  html[dir="ltr"] #mainNav{
+    top:70px !important;
+
+    right:8px !important;
+
+    width:
+      calc(100vw - 16px) !important;
+
+    max-height:
+      calc(100dvh - 84px) !important;
+  }
+
+
+  html[dir="ltr"] .hero{
+    background-position:
+      66% center !important;
+  }
+
+
+  html[dir="ltr"] .hero-grid{
+    min-height:550px !important;
+  }
+
+
+  html[dir="ltr"] .hero-copy{
+    padding:
+      50px 0 34px !important;
+  }
+
+
+  html[dir="ltr"] .hero h1{
+    font-size:
+      clamp(38px,11vw,58px)
+      !important;
+
+    line-height:1.12 !important;
+  }
+
+
+  html[dir="ltr"] .hero-lead{
+    font-size:12px !important;
+    line-height:1.8 !important;
+  }
+
+
+  html[dir="ltr"] .hero-proof{
+    width:100% !important;
+  }
+
+
+  /* exact mobile 2 x 2 stats */
+
+  html[dir="ltr"] .stats-panel{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr))
+      !important;
+
+    grid-template-rows:
+      repeat(2,88px)
+      !important;
+
+    gap:4px !important;
+
+    padding:7px !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel article{
+    grid-template-columns:
+      34px minmax(0,1fr)
+      !important;
+
+    min-height:88px !important;
+
+    padding:
+      10px 6px !important;
+
+    column-gap:8px !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel .stat-icon{
+    width:29px !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel article b{
+    font-size:12px !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel article small{
+    font-size:6.8px !important;
+
+    white-space:normal !important;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+
+  html[dir="ltr"] .hero{
+    background-position:
+      69% center !important;
+  }
+
+
+  html[dir="ltr"] .hero-grid{
+    min-height:520px !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel article{
+    grid-template-columns:
+      30px minmax(0,1fr)
+      !important;
+
+    column-gap:6px !important;
+
+    padding:
+      8px 5px !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel .stat-icon{
+    width:26px !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel article b{
+    font-size:10.5px !important;
+  }
+
+
+  html[dir="ltr"] .stats-panel article small{
+    font-size:6.2px !important;
+  }
+
+}
