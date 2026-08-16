@@ -11375,3 +11375,423 @@ html[dir="ltr"] .hero-proof{
   }
 
 }
+
+/* =========================================================
+   ZAD V2 — REAL MOBILE MASTER FIX
+   Real-device overflow + bottom bar + perceived performance
+   Applies to Arabic & English mobile only
+========================================================= */
+
+@media(max-width:900px){
+
+  /* ---------------------------------------------------------
+     01 — HARD STOP HORIZONTAL PAGE MOVEMENT
+  --------------------------------------------------------- */
+
+  html,
+  body{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+
+    overflow-x:hidden !important;
+    overscroll-behavior-x:none !important;
+  }
+
+  @supports (overflow:clip){
+    html,
+    body{
+      overflow-x:clip !important;
+    }
+  }
+
+  body{
+    position:relative !important;
+  }
+
+  main,
+  header,
+  footer,
+  section,
+  nav,
+  aside,
+  article,
+  div{
+    min-width:0 !important;
+  }
+
+  .shell,
+  .header-shell,
+  .hero,
+  .hero-grid,
+  .hero-copy,
+  .hero-proof,
+  .stats-wrap,
+  .stats-panel,
+  .ticker,
+  .ticker-window,
+  .content-section,
+  .projects-real,
+  .studio-section,
+  .footer-main,
+  .footer-social,
+  .developer-signature,
+  .rights{
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+
+  img,
+  svg,
+  video,
+  canvas{
+    max-width:100% !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     02 — REAL MOBILE HEADER
+  --------------------------------------------------------- */
+
+  .site-header,
+  .header-shell{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  .header-shell{
+    overflow:visible !important;
+  }
+
+  .brand{
+    min-width:0 !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+
+  .brand span{
+    min-width:0 !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     03 — HERO MUST NEVER CREATE PAGE WIDTH
+  --------------------------------------------------------- */
+
+  .hero{
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+
+  .hero-grid,
+  .hero-copy{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+
+  .hero h1,
+  .hero-lead,
+  .hero .eyebrow{
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+
+  .hero h1{
+    overflow-wrap:break-word !important;
+    word-break:normal !important;
+  }
+
+  .hero-actions{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+
+  .hero-actions .btn{
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+
+  .hero-proof{
+    width:100% !important;
+  }
+
+  .hero-proof span{
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     04 — STATS SAFE WIDTH
+  --------------------------------------------------------- */
+
+  .stats-wrap,
+  .stats-panel,
+  .stats-panel article{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  .stats-panel article b,
+  .stats-panel article small{
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     05 — BOTTOM CONTACT BAR
+     This bar must stay INSIDE the physical phone viewport
+  --------------------------------------------------------- */
+
+  .mobile-quick-bar{
+    position:fixed !important;
+
+    right:6px !important;
+    left:6px !important;
+    bottom:max(6px,env(safe-area-inset-bottom)) !important;
+
+    width:auto !important;
+    max-width:calc(100vw - 12px) !important;
+    min-width:0 !important;
+
+    margin:0 !important;
+    padding:5px !important;
+
+    grid-template-columns:
+      repeat(3,minmax(0,1fr)) !important;
+
+    gap:4px !important;
+
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+
+    border-radius:16px !important;
+
+    /* Keep the premium look without expensive mobile blur */
+    background:rgba(4,60,58,.97) !important;
+
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+
+    box-shadow:
+      0 10px 26px rgba(0,0,0,.30) !important;
+
+    transform:none !important;
+  }
+
+  .mobile-quick-bar a,
+  .mobile-quick-bar button{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+
+    box-sizing:border-box !important;
+
+    padding-inline:5px !important;
+
+    overflow:hidden !important;
+
+    white-space:nowrap !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .mobile-quick-bar svg{
+    flex:0 0 auto !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     06 — PREMIUM MENU: KEEP LOOK, CUT GPU COST
+  --------------------------------------------------------- */
+
+  #mainNav{
+    max-width:calc(100vw - 16px) !important;
+    min-width:0 !important;
+
+    box-sizing:border-box !important;
+
+    backdrop-filter:blur(8px) saturate(110%) !important;
+    -webkit-backdrop-filter:blur(8px) saturate(110%) !important;
+  }
+
+  #mainNav a{
+    min-width:0 !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     07 — ASSISTANT MUST NOT PUSH VIEWPORT
+  --------------------------------------------------------- */
+
+  .assistant-panel{
+    right:6px !important;
+    left:6px !important;
+
+    width:auto !important;
+    max-width:calc(100vw - 12px) !important;
+    min-width:0 !important;
+
+    box-sizing:border-box !important;
+  }
+
+  .assistant-body,
+  .assistant-compose,
+  .assistant-quick{
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     08 — REMOVE ARTIFICIAL MOBILE LOADING DELAY
+     JS may still run, but the intro can no longer block mobile.
+  --------------------------------------------------------- */
+
+  .m2a-intro{
+    display:none !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+  }
+
+  body.locked,
+  body.intro-lock,
+  body.no-scroll{
+    overflow-y:auto !important;
+    height:auto !important;
+    position:relative !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     09 — LIGHTER REAL-DEVICE RENDERING
+     Preserve design; remove expensive nonessential effects.
+  --------------------------------------------------------- */
+
+  .site-noise{
+    display:none !important;
+  }
+
+  .reveal-up,
+  .reveal-ar,
+  .reveal-en{
+    opacity:1 !important;
+    transform:none !important;
+    filter:none !important;
+    transition:none !important;
+  }
+
+  .fx-title-word{
+    opacity:1 !important;
+    transform:none !important;
+    filter:none !important;
+    transition:none !important;
+    will-change:auto !important;
+  }
+
+  .ticker-track-ar,
+  .ticker-track-en{
+    will-change:transform;
+  }
+
+}
+
+
+/* =========================================================
+   REAL PHONE WIDTH — 620PX AND BELOW
+========================================================= */
+
+@media(max-width:620px){
+
+  html,
+  body{
+    min-height:100% !important;
+  }
+
+  .shell{
+    width:calc(100% - 16px) !important;
+    max-width:calc(100% - 16px) !important;
+    margin-inline:auto !important;
+  }
+
+  .hero-copy{
+    padding-inline:0 !important;
+  }
+
+  .hero h1{
+    max-width:100% !important;
+  }
+
+  .hero-actions{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr)) !important;
+
+    gap:8px !important;
+  }
+
+  .hero-actions .btn{
+    width:100% !important;
+    padding-inline:8px !important;
+  }
+
+  .hero-proof{
+    grid-template-columns:
+      repeat(3,minmax(0,1fr)) !important;
+  }
+
+  .stats-panel{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .mobile-quick-bar{
+    right:5px !important;
+    left:5px !important;
+
+    max-width:calc(100vw - 10px) !important;
+
+    padding:4px !important;
+  }
+
+  .mobile-quick-bar a,
+  .mobile-quick-bar button{
+    min-height:44px !important;
+    font-size:8px !important;
+    gap:4px !important;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL REAL PHONES — 380PX AND BELOW
+========================================================= */
+
+@media(max-width:380px){
+
+  .shell{
+    width:calc(100% - 12px) !important;
+    max-width:calc(100% - 12px) !important;
+  }
+
+  .hero-actions{
+    gap:6px !important;
+  }
+
+  .hero-actions .btn{
+    font-size:10px !important;
+  }
+
+  .mobile-quick-bar a,
+  .mobile-quick-bar button{
+    font-size:7.5px !important;
+  }
+
+}
