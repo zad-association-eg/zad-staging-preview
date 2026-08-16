@@ -22,13 +22,37 @@
 
   const v2Root = new URL('./', script.src);
 
-  const isEnglish =
+  const englishRoot =
+    new URL('en/', v2Root);
+
+  const declaredLanguage =
     (document.documentElement.lang || '')
-      .toLowerCase()
-      .startsWith('en');
+      .toLowerCase();
+
+  const isEnglish =
+    declaredLanguage.startsWith('en') ||
+    window.location.pathname.startsWith(
+      englishRoot.pathname
+    );
+
+  const currentLanguage =
+    isEnglish
+      ? 'en'
+      : 'ar';
+
+  document.documentElement.lang =
+    currentLanguage;
+
+  document.documentElement.dir =
+    isEnglish
+      ? 'ltr'
+      : 'rtl';
+
+  document.documentElement.dataset.language =
+    currentLanguage;
 
   const languageRoot = isEnglish
-    ? new URL('en/', v2Root)
+    ? englishRoot
     : v2Root;
 
   const cleanPath = value =>
@@ -70,10 +94,32 @@
     v2Root.href;
 
   const englishHome =
-    new URL(
-      'en/',
-      v2Root
-    ).href;
+    englishRoot.href;
+
+  const supportedSections =
+    new Set([
+      'home',
+      'about',
+      'services',
+      'projects',
+      'studio',
+      'leadership',
+      'contact'
+    ]);
+
+  const currentSection =
+    (window.location.hash || '')
+      .replace(/^#/, '');
+
+  const preservedHash =
+    supportedSections.has(currentSection)
+      ? `#${currentSection}`
+      : '';
+
+  const languageSwitchHref =
+    isEnglish
+      ? `${arabicHome}${preservedHash}`
+      : `${englishHome}${preservedHash}`;
 
   /* =========================================================
      BILINGUAL COPY
@@ -123,6 +169,9 @@
         contactUs:
           'Contact Us',
 
+        whatsapp:
+          'WhatsApp',
+
         developerName:
           'Ahmed Abdel Khalek Sayed',
 
@@ -130,7 +179,7 @@
           'Digital Platform & Automation Engineer',
 
         rights:
-          'ZAD DIGITAL PLATFORM · STAGING PREVIEW · 2026 ©'
+          '© 2026 · ZAD DIGITAL PLATFORM · STAGING PREVIEW'
       }
     : {
         brandSub:
@@ -174,6 +223,9 @@
 
         contactUs:
           'تواصل معنا',
+
+        whatsapp:
+          'واتساب',
 
         developerName:
           'أحمد عبد الخالق سيد',
@@ -318,11 +370,7 @@
 
             <a
               class="mini-action language-switch"
-              href="${
-                isEnglish
-                  ? arabicHome
-                  : englishHome
-              }"
+              href="${languageSwitchHref}"
               ${
                 isEnglish
                   ? 'lang="ar" dir="rtl"'
@@ -378,7 +426,11 @@
 
         <div class="shell footer-main">
 
-          <div class="footer-brand reveal-ar">
+          <div class="footer-brand ${
+            isEnglish
+              ? 'reveal-en'
+              : 'reveal-ar'
+          }">
 
             <img
               src="${logoUrl}"
@@ -435,7 +487,7 @@
               </a>
 
               <a href="${sectionHref('studio')}">
-                Media Studio
+                ${copy.studio}
               </a>
 
               <a href="${sectionHref('leadership')}">
@@ -465,7 +517,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                WhatsApp
+                ${copy.whatsapp}
               </a>
 
             </div>
@@ -599,12 +651,16 @@
       {
         detail: {
           language:
-            isEnglish
-              ? 'en'
-              : 'ar',
+            currentLanguage,
 
           root:
-            v2Root.href
+            v2Root.href,
+
+          languageRoot:
+            languageRoot.href,
+
+          home:
+            languageRoot.href
         }
       }
     )
