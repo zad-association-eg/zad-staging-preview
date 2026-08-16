@@ -7490,3 +7490,10 @@ html[dir="ltr"] .ticker-group{
 html[dir="ltr"] .ticker-item{
   align-items:center;
 }
+/* =========================================================
+   ENGLISH HERO — STATS SPACING
+========================================================= */
+
+html[dir="ltr"] .stats-wrap{
+  margin-top:32px;
+}
