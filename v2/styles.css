@@ -7872,3 +7872,627 @@ html[dir="ltr"] #assistantClose{
   margin-left:12px !important;
   transform:none !important;
 }
+/* =========================================================
+   ENGLISH V2 — MOBILE EXECUTIVE POLISH
+   Navigation · Hero · Assistant · Footer
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   HERO — REAL PROJECT VISUAL
+--------------------------------------------------------- */
+
+html[dir="ltr"] .architecture-card{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(1,18,20,.08) 0%,
+      rgba(1,18,20,.18) 45%,
+      rgba(1,18,20,.84) 100%
+    ),
+    url("./assets/zayed-lagoons-sheikh-zayed-sunset-view.webp")
+    center 48% / cover no-repeat !important;
+}
+
+html[dir="ltr"] .architecture-card .architecture-svg,
+html[dir="ltr"] .architecture-card .arch-grid{
+  display:none !important;
+}
+
+html[dir="ltr"] .architecture-card::before{
+  background:
+    linear-gradient(
+      120deg,
+      transparent 18%,
+      rgba(180,255,241,.12) 35%,
+      transparent 52%
+    ) !important;
+}
+
+html[dir="ltr"] .architecture-card .visual-title{
+  top:auto !important;
+  left:24px !important;
+  right:auto !important;
+  bottom:24px !important;
+  z-index:3;
+  align-items:flex-start !important;
+  text-align:left !important;
+}
+
+html[dir="ltr"] .architecture-card .visual-title span{
+  color:#effffb !important;
+  -webkit-text-fill-color:#effffb !important;
+  text-shadow:0 4px 24px rgba(0,0,0,.58) !important;
+}
+
+html[dir="ltr"] .architecture-card .visual-title small{
+  color:#bce8e1 !important;
+  text-shadow:0 2px 14px rgba(0,0,0,.72);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:620px){
+
+  /* ---------------------------------------------------------
+     MOBILE NAV
+  --------------------------------------------------------- */
+
+  html[dir="ltr"] .nav-toggle span{
+    transform-origin:center;
+    transition:
+      transform .22s ease,
+      opacity .18s ease;
+  }
+
+  html[dir="ltr"]
+  .nav-toggle[aria-expanded="true"]
+  span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+  }
+
+  html[dir="ltr"]
+  .nav-toggle[aria-expanded="true"]
+  span:nth-child(2){
+    opacity:0;
+  }
+
+  html[dir="ltr"]
+  .nav-toggle[aria-expanded="true"]
+  span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+  }
+
+  html[dir="ltr"] .main-nav{
+    top:72px !important;
+    right:10px !important;
+    left:auto !important;
+
+    width:min(310px,calc(100vw - 20px)) !important;
+    max-height:calc(100dvh - 150px) !important;
+
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:6px !important;
+
+    padding:10px !important;
+    overflow:auto !important;
+
+    background:
+      linear-gradient(
+        155deg,
+        rgba(4,55,57,.985),
+        rgba(2,28,32,.99)
+      ) !important;
+
+    border:1px solid rgba(113,255,229,.24) !important;
+    border-radius:20px !important;
+
+    box-shadow:
+      0 24px 60px rgba(0,0,0,.40),
+      0 0 30px rgba(52,230,200,.09) !important;
+
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
+    transform:translateX(18px) scale(.985) !important;
+    transform-origin:top right;
+  }
+
+  html[dir="ltr"] .main-nav.open{
+    transform:none !important;
+  }
+
+  html[dir="ltr"] .main-nav a{
+    min-height:44px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+
+    padding:0 14px !important;
+
+    border:
+      1px solid rgba(126,255,232,.08) !important;
+
+    border-radius:13px !important;
+
+    background:
+      rgba(255,255,255,.035) !important;
+
+    color:#dff8f3 !important;
+
+    font-size:11px !important;
+    font-weight:800 !important;
+
+    direction:ltr !important;
+    text-align:left !important;
+  }
+
+  html[dir="ltr"] .main-nav a.active,
+  html[dir="ltr"] .main-nav a:hover{
+    color:#032421 !important;
+
+    background:
+      linear-gradient(
+        110deg,
+        #73f2d8,
+        #70dce9
+      ) !important;
+
+    border-color:transparent !important;
+
+    box-shadow:
+      0 8px 22px rgba(53,224,199,.14);
+  }
+
+  html[dir="ltr"] .main-nav a::after{
+    display:none !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     HERO PHOTO
+  --------------------------------------------------------- */
+
+  html[dir="ltr"] .hero-visual{
+    min-height:280px !important;
+  }
+
+  html[dir="ltr"] .architecture-card{
+    width:100% !important;
+    min-height:270px;
+
+    aspect-ratio:16/10 !important;
+    border-radius:22px !important;
+
+    background-position:
+      center 46% !important;
+  }
+
+  html[dir="ltr"]
+  .architecture-card
+  .visual-title{
+    left:16px !important;
+    bottom:16px !important;
+  }
+
+  html[dir="ltr"]
+  .architecture-card
+  .visual-title span{
+    font-size:22px !important;
+    letter-spacing:.10em !important;
+  }
+
+  html[dir="ltr"]
+  .architecture-card
+  .visual-title small{
+    font-size:8px !important;
+  }
+
+  html[dir="ltr"]
+  .architecture-card
+  .visual-chip{
+    display:none !important;
+  }
+
+  html[dir="ltr"] .hero-arrow{
+    display:none !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     SMART ASSISTANT CARD
+  --------------------------------------------------------- */
+
+  html[dir="ltr"] .assistant-card{
+    grid-template-columns:
+      88px minmax(0,1fr) !important;
+
+    gap:16px !important;
+
+    min-height:0 !important;
+    padding:20px !important;
+
+    direction:ltr !important;
+    text-align:left !important;
+
+    align-items:center !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-card
+  .bot-orb{
+    width:88px !important;
+    height:88px !important;
+
+    margin:0 !important;
+
+    justify-self:start !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-card
+  .bot-face{
+    width:62px !important;
+    height:48px !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-card > div:last-child{
+    min-width:0;
+
+    direction:ltr !important;
+    text-align:left !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-card
+  .section-kicker,
+
+  html[dir="ltr"]
+  .assistant-card h3,
+
+  html[dir="ltr"]
+  .assistant-card p{
+    direction:ltr !important;
+    text-align:left !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-card
+  .section-kicker{
+    display:block;
+    margin-bottom:8px;
+  }
+
+  html[dir="ltr"]
+  .assistant-card h3{
+    margin:0 0 8px !important;
+    font-size:20px !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-card p{
+    margin:0 0 14px !important;
+
+    font-size:11px !important;
+    line-height:1.75 !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-card
+  .small-cta{
+    margin:0 auto 0 0 !important;
+
+    min-height:40px;
+    padding:0 14px;
+  }
+
+
+  /* ---------------------------------------------------------
+     CHAT QUICK ACTIONS
+  --------------------------------------------------------- */
+
+  html[dir="ltr"] .assistant-body{
+    display:flex !important;
+    flex-direction:column !important;
+
+    padding:14px !important;
+    padding-top:14px !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-body
+  .assistant-quick{
+    order:-2 !important;
+
+    position:static !important;
+    inset:auto !important;
+    transform:none !important;
+
+    width:100% !important;
+
+    display:grid !important;
+
+    grid-template-columns:
+      repeat(3,minmax(0,1fr)) !important;
+
+    gap:7px !important;
+
+    margin:0 0 10px !important;
+    padding:0 !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-body
+  .assistant-quick button{
+    min-width:0 !important;
+    min-height:38px !important;
+    width:100% !important;
+
+    padding:5px 6px !important;
+
+    white-space:normal !important;
+
+    line-height:1.25 !important;
+    font-size:7.6px !important;
+
+    direction:ltr !important;
+    text-align:center !important;
+  }
+
+  html[dir="ltr"] .assistant-welcome{
+    order:-1 !important;
+    margin:0 !important;
+  }
+
+  html[dir="ltr"] .assistant-messages{
+    order:0;
+  }
+
+
+  /* ---------------------------------------------------------
+     MOBILE FOOTER
+  --------------------------------------------------------- */
+
+  html[dir="ltr"] footer{
+    padding-top:28px !important;
+    padding-bottom:92px !important;
+  }
+
+  html[dir="ltr"] .footer-main{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+
+    gap:16px !important;
+  }
+
+  html[dir="ltr"] .footer-brand{
+    justify-content:flex-start !important;
+    text-align:left !important;
+
+    padding:17px !important;
+
+    border:
+      1px solid rgba(117,244,222,.14);
+
+    border-radius:20px;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(8,62,62,.42),
+        rgba(2,27,31,.52)
+      );
+
+    box-shadow:
+      inset 0 0 30px
+      rgba(54,226,199,.035);
+  }
+
+  html[dir="ltr"] .footer-brand img{
+    width:58px !important;
+    height:58px !important;
+
+    flex:0 0 auto;
+  }
+
+  html[dir="ltr"] .footer-brand div{
+    min-width:0;
+
+    align-items:flex-start !important;
+    text-align:left !important;
+  }
+
+  html[dir="ltr"] .footer-brand strong{
+    font-size:13px !important;
+    line-height:1.35;
+  }
+
+  html[dir="ltr"] .footer-brand small{
+    font-size:8.5px !important;
+    line-height:1.55;
+
+    text-align:left !important;
+  }
+
+  html[dir="ltr"] .footer-links{
+    display:grid !important;
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr)) !important;
+
+    gap:9px !important;
+  }
+
+  html[dir="ltr"] .footer-links > div{
+    min-width:0;
+
+    align-items:flex-start !important;
+    text-align:left !important;
+
+    gap:6px !important;
+    padding:14px !important;
+
+    border:
+      1px solid rgba(120,240,220,.11);
+
+    border-radius:16px;
+
+    background:
+      rgba(5,46,49,.34);
+  }
+
+  html[dir="ltr"]
+  .footer-links > div:last-child{
+    grid-column:1/-1 !important;
+  }
+
+  html[dir="ltr"] .footer-links b{
+    margin-bottom:4px !important;
+    font-size:10px !important;
+  }
+
+  html[dir="ltr"] .footer-links a{
+    max-width:100%;
+
+    font-size:9px !important;
+    line-height:1.55 !important;
+
+    direction:ltr !important;
+    text-align:left !important;
+
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+
+  html[dir="ltr"]
+  .footer-links a[href^="mailto:"]{
+    font-size:8.6px !important;
+    white-space:normal;
+  }
+
+  html[dir="ltr"] .footer-social{
+    justify-content:flex-start !important;
+
+    margin-top:14px !important;
+    gap:9px !important;
+  }
+
+  html[dir="ltr"]
+  .developer-signature{
+    width:min(100% - 28px,440px);
+
+    margin:
+      18px auto 6px !important;
+
+    padding:14px 12px;
+
+    border-top:
+      1px solid rgba(109,232,214,.10);
+
+    text-align:center;
+  }
+
+  html[dir="ltr"]
+  .developer-signature span{
+    font-size:16px !important;
+  }
+
+  html[dir="ltr"]
+  .developer-signature small{
+    font-size:7.5px !important;
+    letter-spacing:.12em;
+  }
+
+  html[dir="ltr"] .rights{
+    padding:
+      8px 14px 12px !important;
+
+    font-size:7px !important;
+    line-height:1.5;
+
+    text-align:center;
+  }
+
+  html[dir="ltr"]
+  .mobile-quick-bar{
+    right:8px !important;
+    left:8px !important;
+    bottom:7px !important;
+
+    padding:5px !important;
+
+    border-radius:
+      17px !important;
+
+    background:
+      rgba(4,60,58,.94) !important;
+
+    box-shadow:
+      0 16px 36px rgba(0,0,0,.34),
+      0 0 24px rgba(52,225,199,.07)
+      !important;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+  html[dir="ltr"] .main-nav{
+    width:
+      calc(100vw - 16px) !important;
+
+    right:8px !important;
+  }
+
+  html[dir="ltr"] .assistant-card{
+    grid-template-columns:
+      76px minmax(0,1fr) !important;
+
+    gap:13px !important;
+    padding:17px !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-card
+  .bot-orb{
+    width:76px !important;
+    height:76px !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-body
+  .assistant-quick{
+    gap:5px !important;
+  }
+
+  html[dir="ltr"]
+  .assistant-body
+  .assistant-quick button{
+    min-height:36px !important;
+
+    padding:4px !important;
+    font-size:7px !important;
+  }
+
+  html[dir="ltr"] .footer-links{
+    grid-template-columns:
+      1fr !important;
+  }
+
+  html[dir="ltr"]
+  .footer-links > div:last-child{
+    grid-column:auto !important;
+  }
+
+}
