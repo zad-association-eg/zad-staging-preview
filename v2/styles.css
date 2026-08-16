@@ -11795,3 +11795,124 @@ html[dir="ltr"] .hero-proof{
   }
 
 }
+
+/* =========================================================
+   ZAD V2 — REAL MOBILE CENTERING NORMALIZATION
+   Exact physical centering for RTL + LTR
+========================================================= */
+
+@media(max-width:900px){
+
+  /* Main layout containers */
+  .shell,
+  .header-shell,
+  .content-section > .shell,
+  .projects-real > .shell,
+  .studio-section > .shell,
+  .stats-wrap > .shell,
+  footer .shell,
+  .footer-main,
+  .footer-social,
+  .developer-signature,
+  .rights{
+    margin-left:auto !important;
+    margin-right:auto !important;
+
+    left:auto !important;
+    right:auto !important;
+
+    transform:none !important;
+  }
+
+  /* Hero container must be centered physically,
+     while its text keeps the correct language direction */
+  html[dir="rtl"] .hero-copy,
+  html[dir="ltr"] .hero-copy{
+    margin-left:auto !important;
+    margin-right:auto !important;
+
+    left:auto !important;
+    right:auto !important;
+
+    transform:none !important;
+  }
+
+  html[dir="rtl"] .hero-copy{
+    direction:rtl !important;
+    text-align:right !important;
+  }
+
+  html[dir="ltr"] .hero-copy{
+    direction:ltr !important;
+    text-align:left !important;
+  }
+
+  /* Cards / sections stay centered inside their shell */
+  .about-grid,
+  .service-grid,
+  .ecosystem-grid,
+  .leadership-grid,
+  .project-stage,
+  .studio-grid,
+  .trust-grid,
+  .stats-panel{
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  /* Footer bottom bar remains perfectly symmetrical */
+  .mobile-quick-bar{
+    right:6px !important;
+    left:6px !important;
+    width:auto !important;
+    margin:0 !important;
+    transform:none !important;
+  }
+
+}
+
+
+/* Exact phone width */
+@media(max-width:620px){
+
+  .shell{
+    width:calc(100% - 16px) !important;
+    max-width:calc(100% - 16px) !important;
+
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .header-shell{
+    width:calc(100% - 16px) !important;
+    max-width:calc(100% - 16px) !important;
+
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  html[dir="rtl"] .hero-copy,
+  html[dir="ltr"] .hero-copy{
+    width:100% !important;
+    max-width:100% !important;
+
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+}
+
+
+/* Very small phones */
+@media(max-width:380px){
+
+  .shell,
+  .header-shell{
+    width:calc(100% - 12px) !important;
+    max-width:calc(100% - 12px) !important;
+
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+}
