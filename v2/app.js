@@ -26,8 +26,8 @@
     $$('script[src]').find(script => /app\.js(?:\?|$)/.test(script.src));
 
   const logoSource = currentScript?.src
-    ? new URL('./assets/zad-logo.png', currentScript.src).href
-    : './assets/zad-logo.png';
+  ? new URL('./assets/zad-logo-official.webp', currentScript.src).href
+  : './assets/zad-logo-official.webp';
 
   const hydrateLogos = () => {
     $$('img[data-zad-logo]').forEach(img => {
