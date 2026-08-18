@@ -1,0 +1,42 @@
+/* =========================================================
+   ZAD — MOBILE FOOTER SPACING FINAL
+   2026-08-18
+   Scope: Arabic + English mobile only.
+   Keep only the safe space required by the fixed bottom bar.
+========================================================= */
+
+@media (max-width:620px){
+  html[dir] body{
+    padding-bottom:0 !important;
+  }
+
+  html[dir] footer#contact{
+    margin-bottom:0 !important;
+    padding-bottom:56px !important;
+  }
+
+  html[dir] footer#contact .footer-main{
+    gap:10px !important;
+    margin-bottom:0 !important;
+  }
+
+  html[dir] footer#contact .footer-social{
+    margin-top:8px !important;
+    margin-bottom:0 !important;
+  }
+
+  html[dir] footer#contact .developer-signature{
+    margin:8px auto 2px !important;
+  }
+
+  html[dir] footer#contact .rights{
+    margin:0 auto !important;
+    padding:5px 8px 4px !important;
+  }
+}
+
+@media (max-width:380px){
+  html[dir] footer#contact{
+    padding-bottom:54px !important;
+  }
+}
