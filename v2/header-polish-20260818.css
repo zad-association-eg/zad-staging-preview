@@ -1,144 +1,132 @@
 /* =========================================================
-   ZAD ENGLISH — HEADER VISUAL POLISH
+   ZAD — BILINGUAL HEADER VISUAL POLISH
    2026-08-18
-   Desktop only. English staging only.
-   Goal: integrate header with page + use high-resolution PNG logo.
+   Desktop only. Arabic + English staging.
+   Goal: integrate header with page, improve logo clarity,
+   and add a subtle premium brand capsule without touching layout.
 ========================================================= */
 
 @media (min-width:901px){
-  html[dir="ltr"] .site-header,
-  html[dir="ltr"] .site-header.scrolled{
-    background:
-      linear-gradient(
-        115deg,
-        rgba(3,29,33,.975) 0%,
-        rgba(5,63,59,.955) 52%,
-        rgba(2,25,30,.975) 100%
-      ) !important;
-
+  .site-header,
+  .site-header.scrolled{
+    background:linear-gradient(115deg,rgba(3,29,33,.975) 0%,rgba(5,63,59,.955) 52%,rgba(2,25,30,.975) 100%) !important;
     border-bottom:1px solid rgba(111,240,216,.16) !important;
-
-    box-shadow:
-      0 12px 34px rgba(0,16,18,.24),
-      inset 0 -1px rgba(255,255,255,.025) !important;
-
+    box-shadow:0 12px 34px rgba(0,16,18,.24),inset 0 -1px rgba(255,255,255,.025) !important;
     backdrop-filter:blur(18px) saturate(120%) !important;
     -webkit-backdrop-filter:blur(18px) saturate(120%) !important;
   }
 
-  html[dir="ltr"] .site-header.scrolled{
-    background:
-      linear-gradient(
-        115deg,
-        rgba(2,25,29,.99) 0%,
-        rgba(4,55,53,.98) 52%,
-        rgba(1,21,26,.99) 100%
-      ) !important;
-
+  .site-header.scrolled{
+    background:linear-gradient(115deg,rgba(2,25,29,.99) 0%,rgba(4,55,53,.98) 52%,rgba(1,21,26,.99) 100%) !important;
     border-bottom-color:rgba(111,240,216,.22) !important;
     box-shadow:0 14px 38px rgba(0,13,16,.32) !important;
   }
 
+  /* Premium capsule around logo + ZAD identity only. */
+  .site-header .brand{
+    position:relative !important;
+    min-width:285px !important;
+    width:max-content !important;
+    padding:7px 14px 7px 9px !important;
+    border-radius:18px !important;
+    background:
+      radial-gradient(circle at 12% 50%,rgba(230,197,107,.085),transparent 30%),
+      linear-gradient(118deg,rgba(255,255,255,.075),rgba(55,190,167,.055) 48%,rgba(255,255,255,.028)) !important;
+    border:1px solid rgba(137,241,220,.15) !important;
+    box-shadow:0 8px 22px rgba(0,11,13,.15),inset 0 1px rgba(255,255,255,.07),inset 0 -1px rgba(42,190,164,.035) !important;
+    backdrop-filter:blur(10px) saturate(115%) !important;
+    -webkit-backdrop-filter:blur(10px) saturate(115%) !important;
+    transition:background .25s ease,border-color .25s ease,box-shadow .25s ease,transform .25s ease !important;
+  }
+
+  .site-header .brand:hover{
+    border-color:rgba(159,244,226,.24) !important;
+    background:
+      radial-gradient(circle at 12% 50%,rgba(230,197,107,.11),transparent 31%),
+      linear-gradient(118deg,rgba(255,255,255,.095),rgba(55,190,167,.075) 48%,rgba(255,255,255,.04)) !important;
+    box-shadow:0 10px 28px rgba(0,11,13,.19),inset 0 1px rgba(255,255,255,.09) !important;
+    transform:translateY(-1px) !important;
+  }
+
   /* Use the original high-resolution transparent PNG in the header only. */
-  html[dir="ltr"] .site-header .brand > img{
+  .site-header .brand > img{
     display:none !important;
   }
 
-  html[dir="ltr"] .site-header .brand::before{
+  .site-header .brand::before{
     content:"";
     display:block;
-    flex:0 0 46px;
-    width:46px;
-    height:46px;
-
-    background:
-      url("./assets/zad-logo.png")
-      center / contain no-repeat;
-
-    filter:
-      drop-shadow(0 5px 12px rgba(0,0,0,.18))
-      drop-shadow(0 0 10px rgba(230,197,107,.10));
+    flex:0 0 48px;
+    width:48px;
+    height:48px;
+    background:url("./assets/zad-logo.png") center / contain no-repeat;
+    filter:drop-shadow(0 5px 12px rgba(0,0,0,.18)) drop-shadow(0 0 11px rgba(230,197,107,.10));
   }
 
-  html[dir="ltr"] .site-header .brand strong{
+  .site-header .brand strong{
     background:none !important;
     -webkit-background-clip:initial !important;
     background-clip:initial !important;
-
     color:#f1fffc !important;
     -webkit-text-fill-color:#f1fffc !important;
-
     animation:none !important;
     text-shadow:0 1px 12px rgba(67,231,203,.09) !important;
   }
 
-  html[dir="ltr"] .site-header .brand small{
+  .site-header .brand small{
     color:#b8d5d0 !important;
   }
 
-  html[dir="ltr"] .site-header .main-nav a{
+  .site-header .main-nav a{
     background:none !important;
     -webkit-background-clip:initial !important;
     background-clip:initial !important;
-
     color:#dcefeb !important;
     -webkit-text-fill-color:#dcefeb !important;
-
     animation:none !important;
     filter:none !important;
     text-shadow:none !important;
   }
 
-  html[dir="ltr"] .site-header .main-nav a:hover{
+  .site-header .main-nav a:hover{
     color:#8ef1d8 !important;
     -webkit-text-fill-color:#8ef1d8 !important;
   }
 
-  html[dir="ltr"] .site-header .main-nav a.active,
-  html[dir="ltr"] .site-header .main-nav a[aria-current="page"]{
+  .site-header .main-nav a.active,
+  .site-header .main-nav a[aria-current="page"]{
     color:#e6c56b !important;
     -webkit-text-fill-color:#e6c56b !important;
     font-weight:900 !important;
   }
 
-  html[dir="ltr"] .site-header .main-nav a::after{
-    background:
-      linear-gradient(
-        90deg,
-        transparent,
-        #75ecd2,
-        #e6c56b,
-        transparent
-      ) !important;
-
+  .site-header .main-nav a::after{
+    background:linear-gradient(90deg,transparent,#75ecd2,#e6c56b,transparent) !important;
     box-shadow:0 0 12px rgba(117,236,210,.30) !important;
   }
 
-  html[dir="ltr"] .site-header .language-switch{
+  .site-header .language-switch{
     color:#effffb !important;
     border-color:rgba(159,244,226,.20) !important;
     background:rgba(255,255,255,.055) !important;
     box-shadow:inset 0 0 14px rgba(110,238,216,.025) !important;
   }
 
-  html[dir="ltr"] .site-header .language-switch:hover{
+  .site-header .language-switch:hover{
     color:#ffffff !important;
     border-color:rgba(181,255,241,.38) !important;
     background:rgba(255,255,255,.09) !important;
   }
 
-  html[dir="ltr"] .site-header .member-cta{
+  .site-header .member-cta{
     color:#effffb !important;
     border-color:rgba(230,197,107,.28) !important;
-    background:
-      linear-gradient(
-        110deg,
-        rgba(13,116,105,.72),
-        rgba(5,77,72,.78)
-      ) !important;
+    background:linear-gradient(110deg,rgba(13,116,105,.72),rgba(5,77,72,.78)) !important;
+    box-shadow:0 8px 22px rgba(0,0,0,.16),inset 0 1px rgba(255,255,255,.10) !important;
+  }
 
-    box-shadow:
-      0 8px 22px rgba(0,0,0,.16),
-      inset 0 1px rgba(255,255,255,.10) !important;
+  /* RTL capsule spacing so Arabic feels native, not mirrored awkwardly. */
+  html[dir="rtl"] .site-header .brand{
+    padding:7px 9px 7px 14px !important;
   }
 }
