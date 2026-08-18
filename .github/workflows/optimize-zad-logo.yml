@@ -1,0 +1,75 @@
+name: Optimize ZAD Logo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/optimize-zad-logo.yml'
+      - 'v2/assets/zad-logo.png'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  optimize-logo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: python -m pip install --upgrade pillow
+
+      - name: Create optimized transparent WebP
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+
+          src = Path('v2/assets/zad-logo.png')
+          out = Path('v2/assets/zad-logo-hq.webp')
+
+          im = Image.open(src).convert('RGBA')
+          original = im.size
+
+          max_dim = 768
+          scale = min(1.0, max_dim / max(im.size))
+          if scale < 1.0:
+              new_size = (max(1, round(im.width * scale)), max(1, round(im.height * scale)))
+              im = im.resize(new_size, Image.Resampling.LANCZOS)
+
+          im.save(out, 'WEBP', quality=92, method=6, exact=True)
+
+          print('Original dimensions:', original)
+          print('Optimized dimensions:', im.size)
+          print('PNG bytes:', src.stat().st_size)
+          print('WebP bytes:', out.stat().st_size)
+          PY
+
+      - name: Point header to optimized logo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('v2/header-polish-20260818.css')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('./assets/zad-logo.png', './assets/zad-logo-hq.webp')
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit optimized asset
+        run: |
+          git config user.name 'zad-association'
+          git config user.email 'zadassociation2023@gmail.com'
+          git add v2/assets/zad-logo-hq.webp v2/header-polish-20260818.css
+          if git diff --cached --quiet; then
+            echo 'No changes to commit.'
+          else
+            git commit -m 'Optimize high-resolution ZAD header logo'
+            git push
+          fi
