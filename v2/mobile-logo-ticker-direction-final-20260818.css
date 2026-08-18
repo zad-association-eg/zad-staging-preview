@@ -1,0 +1,50 @@
+/* =========================================================
+   ZAD — MOBILE LOGO + TICKER DIRECTION FINAL
+   2026-08-18
+   Scope: mobile only. Preserve existing layout/loop styling.
+========================================================= */
+
+@media (max-width:620px){
+  /* Nudge only the Arabic mobile logo slightly toward the right edge. */
+  html[dir="rtl"] .site-header .brand::before{
+    transform:translateX(4px) !important;
+  }
+
+  /* Keep the physical ticker rail LTR for reliable duplicate sizing. */
+  html[dir="rtl"] .ticker-window,
+  html[dir="rtl"] .ticker-track-ar{
+    direction:ltr !important;
+  }
+
+  /* Arabic content itself remains RTL, but travels LEFT -> RIGHT. */
+  html[dir="rtl"] .ticker-group{
+    direction:rtl !important;
+  }
+
+  html[dir="rtl"] .ticker-track-ar{
+    animation:zadArabicTickerFromLeft 30s linear infinite !important;
+  }
+
+  /* English continues RIGHT -> LEFT. */
+  html[dir="ltr"] .ticker-track-en{
+    animation:zadEnglishTickerFromRight 30s linear infinite !important;
+  }
+}
+
+@keyframes zadArabicTickerFromLeft{
+  from{transform:translate3d(-50%,0,0)}
+  to{transform:translate3d(0,0,0)}
+}
+
+@keyframes zadEnglishTickerFromRight{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html[dir="rtl"] .ticker-track-ar,
+  html[dir="ltr"] .ticker-track-en{
+    animation:none !important;
+    transform:none !important;
+  }
+}
