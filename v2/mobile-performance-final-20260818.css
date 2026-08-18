@@ -1,0 +1,128 @@
+/* =========================================================
+   ZAD — MOBILE PERFORMANCE FINAL
+   2026-08-18
+   Scope: <= 620px only.
+   Keeps layout / colors / ticker motion, removes costly visual effects.
+========================================================= */
+
+@media (max-width:620px){
+  /* Large fixed blur/noise layers are expensive on mobile GPUs. */
+  .site-noise,
+  .ambient,
+  .visual-glow{
+    display:none !important;
+  }
+
+  /* Remove backdrop blurs while keeping the same card backgrounds/borders. */
+  .site-header,
+  .brand,
+  .main-nav,
+  .hero-proof,
+  .stats-panel,
+  .premium-panel,
+  .service-card,
+  .zad-project-featured,
+  .zad-project-card,
+  .zad-projects-summary,
+  .studio-project-card,
+  .studio-project-summary,
+  .ecosystem-card,
+  .trust-grid,
+  .assistant-panel,
+  .mobile-quick-bar{
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+  }
+
+  /* No entrance/reveal animation work on mobile. */
+  .reveal-ar,
+  .reveal-en,
+  .reveal-up{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+    animation:none !important;
+  }
+
+  /* Project image effects: keep clean static images. */
+  .zad-project-card,
+  .zad-project-featured,
+  .studio-project-card,
+  .media-card{
+    transform:none !important;
+    transition:none !important;
+    will-change:auto !important;
+  }
+
+  .zad-project-card:hover,
+  .zad-project-featured:hover,
+  .studio-project-card:hover,
+  .media-card:hover{
+    transform:none !important;
+  }
+
+  .zad-project-card-media > img,
+  .zad-project-gallery img,
+  .studio-media-open img,
+  .project-art img,
+  .media-card img{
+    transform:none !important;
+    filter:none !important;
+    transition:none !important;
+    animation:none !important;
+    will-change:auto !important;
+  }
+
+  .zad-project-card:hover .zad-project-card-media > img,
+  .zad-project-gallery img:hover,
+  .studio-project-card:hover .studio-media-open img,
+  .media-card:hover img{
+    transform:none !important;
+    filter:none !important;
+  }
+
+  /* Disable decorative sweeps/glows layered over imagery. */
+  .zad-project-featured::before,
+  .zad-project-featured::after,
+  .zad-project-card::before,
+  .zad-project-card::after,
+  .studio-media-open::after,
+  .architecture-card::before,
+  .project-art::before{
+    animation:none !important;
+  }
+
+  .zad-project-featured::after,
+  .zad-project-card::after,
+  .studio-media-open::after,
+  .architecture-card::before,
+  .project-art::before{
+    display:none !important;
+  }
+
+  /* Keep useful overlays, but avoid animated filter/transform work. */
+  .studio-media-shade,
+  .zad-project-card-media::after{
+    transition:none !important;
+    animation:none !important;
+    filter:none !important;
+  }
+
+  /* Remove expensive glow shadows from repeated image/card elements. */
+  .zad-project-card,
+  .studio-project-card,
+  .media-card,
+  .zad-project-gallery img{
+    box-shadow:none !important;
+  }
+
+  /* Avoid unnecessary compositor promotion. Ticker is intentionally excluded. */
+  .hero,
+  .hero-copy,
+  .stats-panel,
+  .zad-projects-grid,
+  .studio-project-grid,
+  .ecosystem-grid{
+    will-change:auto !important;
+  }
+}
