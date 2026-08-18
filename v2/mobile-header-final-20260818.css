@@ -1,0 +1,148 @@
+/* =========================================================
+   ZAD — MOBILE HEADER FINAL OVERRIDE
+   2026-08-18
+   Arabic + English, <= 620px
+   Purpose: force mobile header to match desktop visual identity.
+========================================================= */
+
+@media (max-width:620px){
+  html[dir="rtl"] .site-header,
+  html[dir="rtl"] .site-header.scrolled,
+  html[dir="ltr"] .site-header,
+  html[dir="ltr"] .site-header.scrolled{
+    background:
+      linear-gradient(115deg,rgba(2,25,29,.995) 0%,rgba(5,63,59,.985) 52%,rgba(2,24,29,.995) 100%) !important;
+    border-bottom:1px solid rgba(111,240,216,.18) !important;
+    box-shadow:0 10px 24px rgba(0,12,15,.24) !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+  }
+
+  html[dir="rtl"] .header-shell,
+  html[dir="ltr"] .header-shell{
+    width:calc(100% - 8px) !important;
+    max-width:none !important;
+    height:60px !important;
+    min-height:60px !important;
+    margin-inline:4px !important;
+    padding:0 !important;
+    gap:5px !important;
+  }
+
+  html[dir="rtl"] .site-header .brand,
+  html[dir="ltr"] .site-header .brand{
+    min-width:0 !important;
+    max-width:138px !important;
+    width:auto !important;
+    padding:4px 6px !important;
+    gap:6px !important;
+    border-radius:12px !important;
+    background:linear-gradient(120deg,rgba(255,255,255,.07),rgba(65,198,176,.04)) !important;
+    border:1px solid rgba(145,240,222,.13) !important;
+    box-shadow:inset 0 1px rgba(255,255,255,.05),0 4px 12px rgba(0,10,12,.12) !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+  }
+
+  html[dir="rtl"] .site-header .brand > img,
+  html[dir="ltr"] .site-header .brand > img{
+    display:none !important;
+  }
+
+  html[dir="rtl"] .site-header .brand::before,
+  html[dir="ltr"] .site-header .brand::before{
+    content:"" !important;
+    display:block !important;
+    flex:0 0 34px !important;
+    width:34px !important;
+    height:34px !important;
+    background:url("./assets/zad-logo-hq.webp") center/contain no-repeat !important;
+    filter:drop-shadow(0 3px 7px rgba(0,0,0,.18)) !important;
+  }
+
+  html[dir="rtl"] .site-header .brand strong,
+  html[dir="ltr"] .site-header .brand strong{
+    font-size:14px !important;
+    line-height:1 !important;
+    letter-spacing:.08em !important;
+    color:#f5fffd !important;
+    -webkit-text-fill-color:#f5fffd !important;
+    background:none !important;
+    text-shadow:none !important;
+    white-space:nowrap !important;
+  }
+
+  html[dir="rtl"] .site-header .brand small,
+  html[dir="ltr"] .site-header .brand small{
+    display:none !important;
+  }
+
+  html[dir="rtl"] #navToggle,
+  html[dir="ltr"] #navToggle{
+    width:38px !important;
+    height:38px !important;
+    flex:0 0 38px !important;
+    border-radius:12px !important;
+    border:1px solid rgba(150,244,226,.18) !important;
+    background:linear-gradient(145deg,rgba(14,106,96,.82),rgba(5,66,64,.94)) !important;
+    box-shadow:0 5px 14px rgba(0,0,0,.16),inset 0 1px rgba(255,255,255,.08) !important;
+  }
+
+  html[dir="rtl"] #navToggle span,
+  html[dir="ltr"] #navToggle span{
+    background:#effffb !important;
+    box-shadow:none !important;
+  }
+
+  html[dir="rtl"] .header-actions,
+  html[dir="ltr"] .header-actions{
+    display:flex !important;
+    align-items:center !important;
+    gap:5px !important;
+    margin:0 !important;
+  }
+
+  html[dir="rtl"] .site-header .language-switch,
+  html[dir="rtl"] .site-header .mini-action,
+  html[dir="rtl"] .site-header .member-cta,
+  html[dir="ltr"] .site-header .language-switch,
+  html[dir="ltr"] .site-header .mini-action,
+  html[dir="ltr"] .site-header .member-cta{
+    width:34px !important;
+    height:34px !important;
+    min-width:34px !important;
+    padding:0 !important;
+    border-radius:50% !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+  }
+
+  html[dir="rtl"] .site-header .language-switch,
+  html[dir="rtl"] .site-header .mini-action,
+  html[dir="ltr"] .site-header .language-switch,
+  html[dir="ltr"] .site-header .mini-action{
+    color:#eafffa !important;
+    -webkit-text-fill-color:#eafffa !important;
+    background:rgba(255,255,255,.055) !important;
+    border:1px solid rgba(157,240,224,.16) !important;
+  }
+
+  html[dir="rtl"] .site-header .member-cta,
+  html[dir="ltr"] .site-header .member-cta{
+    color:#effffb !important;
+    background:linear-gradient(145deg,rgba(16,118,105,.82),rgba(5,74,69,.92)) !important;
+    border:1px solid rgba(230,197,107,.24) !important;
+  }
+
+  html[dir="rtl"] .site-header .member-cta span,
+  html[dir="ltr"] .site-header .member-cta span{
+    display:none !important;
+  }
+
+  html[dir="rtl"] .site-header .member-cta svg,
+  html[dir="ltr"] .site-header .member-cta svg{
+    width:17px !important;
+    height:17px !important;
+    margin:0 !important;
+  }
+}
