@@ -1,0 +1,361 @@
+/* =========================================================
+   ZAD — BILINGUAL MOBILE POLISH
+   2026-08-18
+   Scope: mobile/tablet first fold only.
+   Keeps desktop and assistant patch untouched.
+========================================================= */
+
+@media (max-width:900px){
+  .site-header,
+  .site-header.scrolled{
+    background:
+      linear-gradient(115deg,rgba(2,25,29,.985),rgba(5,65,59,.97) 52%,rgba(2,24,29,.985)) !important;
+    border-bottom:1px solid rgba(118,238,217,.16) !important;
+    box-shadow:0 10px 26px rgba(0,12,15,.24) !important;
+    backdrop-filter:blur(18px) saturate(125%) !important;
+    -webkit-backdrop-filter:blur(18px) saturate(125%) !important;
+  }
+
+  .header-shell{
+    width:calc(100% - 16px) !important;
+    min-height:68px !important;
+    height:68px !important;
+    margin-inline:auto !important;
+    padding:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:7px !important;
+  }
+
+  .site-header .brand{
+    min-width:0 !important;
+    width:auto !important;
+    max-width:178px !important;
+    flex:0 1 auto !important;
+    gap:8px !important;
+    padding:5px 8px 5px 6px !important;
+    border-radius:14px !important;
+    background:linear-gradient(120deg,rgba(255,255,255,.07),rgba(65,198,176,.045)) !important;
+    border:1px solid rgba(145,240,222,.12) !important;
+    box-shadow:inset 0 1px rgba(255,255,255,.055),0 5px 14px rgba(0,10,12,.11) !important;
+  }
+
+  html[dir="rtl"] .site-header .brand{
+    padding:5px 6px 5px 8px !important;
+  }
+
+  .site-header .brand > img{
+    display:none !important;
+  }
+
+  .site-header .brand::before{
+    content:"" !important;
+    display:block !important;
+    flex:0 0 38px !important;
+    width:38px !important;
+    height:38px !important;
+    background:url("./assets/zad-logo-hq.webp") center/contain no-repeat !important;
+    filter:drop-shadow(0 3px 8px rgba(0,0,0,.18)) !important;
+  }
+
+  .site-header .brand span{
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+
+  .site-header .brand strong{
+    font-size:16px !important;
+    line-height:1 !important;
+    letter-spacing:.09em !important;
+    color:#f5fffd !important;
+    -webkit-text-fill-color:#f5fffd !important;
+    background:none !important;
+    text-shadow:none !important;
+    white-space:nowrap !important;
+  }
+
+  .site-header .brand small{
+    display:none !important;
+  }
+
+  #navToggle{
+    margin-inline-start:auto !important;
+    flex:0 0 40px !important;
+    width:40px !important;
+    height:40px !important;
+    border-radius:13px !important;
+    border:1px solid rgba(150,244,226,.18) !important;
+    background:linear-gradient(145deg,rgba(14,106,96,.78),rgba(5,66,64,.90)) !important;
+    box-shadow:0 6px 16px rgba(0,0,0,.16),inset 0 1px rgba(255,255,255,.08) !important;
+  }
+
+  #navToggle span{
+    background:#effffb !important;
+    box-shadow:none !important;
+  }
+
+  .header-actions{
+    display:flex !important;
+    align-items:center !important;
+    gap:6px !important;
+    margin:0 !important;
+    flex:0 0 auto !important;
+  }
+
+  .site-header .language-switch,
+  .site-header .mini-action{
+    width:36px !important;
+    height:36px !important;
+    min-width:36px !important;
+    padding:0 !important;
+    display:grid !important;
+    place-items:center !important;
+    border-radius:50% !important;
+    color:#eafffa !important;
+    -webkit-text-fill-color:#eafffa !important;
+    border:1px solid rgba(157,240,224,.16) !important;
+    background:rgba(255,255,255,.055) !important;
+    font-size:9px !important;
+    line-height:1 !important;
+  }
+
+  .site-header .member-cta{
+    width:36px !important;
+    height:36px !important;
+    min-width:36px !important;
+    padding:0 !important;
+    display:grid !important;
+    place-items:center !important;
+    border-radius:50% !important;
+    color:#effffb !important;
+    border:1px solid rgba(230,197,107,.24) !important;
+    background:linear-gradient(145deg,rgba(16,118,105,.82),rgba(5,74,69,.92)) !important;
+    box-shadow:0 5px 14px rgba(0,0,0,.14),inset 0 1px rgba(255,255,255,.08) !important;
+  }
+
+  .site-header .member-cta span{
+    display:none !important;
+  }
+
+  .site-header .member-cta svg{
+    width:18px !important;
+    height:18px !important;
+    margin:0 !important;
+  }
+
+  #mainNav{
+    top:76px !important;
+    right:8px !important;
+    left:8px !important;
+    width:auto !important;
+    max-height:calc(100dvh - 90px) !important;
+    padding:10px !important;
+    border-radius:20px !important;
+    background:
+      radial-gradient(circle at 15% 0,rgba(65,210,182,.11),transparent 30%),
+      linear-gradient(160deg,rgba(3,34,38,.985),rgba(3,58,57,.985)) !important;
+    border:1px solid rgba(127,235,215,.16) !important;
+    box-shadow:0 20px 44px rgba(0,8,10,.40) !important;
+    backdrop-filter:blur(22px) saturate(120%) !important;
+    -webkit-backdrop-filter:blur(22px) saturate(120%) !important;
+  }
+
+  .hero{
+    background-position:center center !important;
+  }
+
+  .hero-grid{
+    min-height:610px !important;
+    align-items:center !important;
+  }
+
+  .hero-copy{
+    width:100% !important;
+    max-width:100% !important;
+    padding:58px 0 34px !important;
+  }
+
+  .hero-kicker{
+    margin-bottom:13px !important;
+    font-size:9px !important;
+    letter-spacing:.14em !important;
+  }
+
+  .hero h1{
+    max-width:100% !important;
+    margin:0 !important;
+    font-size:clamp(38px,10.8vw,52px) !important;
+    line-height:1.13 !important;
+    letter-spacing:-.035em !important;
+  }
+
+  html[dir="rtl"] .hero h1{
+    letter-spacing:0 !important;
+  }
+
+  .hero-lead{
+    max-width:100% !important;
+    margin-top:17px !important;
+    font-size:12.5px !important;
+    line-height:1.85 !important;
+  }
+
+  .hero-actions{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    margin-top:20px !important;
+  }
+
+  .hero-actions .btn,
+  .hero-actions a,
+  .hero-actions button{
+    min-width:0 !important;
+    min-height:48px !important;
+    padding-inline:10px !important;
+    justify-content:center !important;
+    text-align:center !important;
+    font-size:10px !important;
+  }
+
+  .hero-proof{
+    width:100% !important;
+    margin-top:18px !important;
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:6px !important;
+  }
+
+  .hero-proof span{
+    min-width:0 !important;
+    min-height:48px !important;
+    padding:7px 5px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+    border-radius:12px !important;
+    background:rgba(2,40,43,.56) !important;
+    border:1px solid rgba(111,235,213,.10) !important;
+  }
+
+  .stats-wrap{
+    padding-top:12px !important;
+  }
+}
+
+@media (max-width:620px){
+  .header-shell{
+    width:calc(100% - 12px) !important;
+    min-height:64px !important;
+    height:64px !important;
+    gap:5px !important;
+  }
+
+  .site-header .brand{
+    max-width:145px !important;
+    padding:4px 6px !important;
+    gap:6px !important;
+    border-radius:12px !important;
+  }
+
+  .site-header .brand::before{
+    flex-basis:34px !important;
+    width:34px !important;
+    height:34px !important;
+  }
+
+  .site-header .brand strong{
+    font-size:14px !important;
+  }
+
+  #navToggle{
+    width:38px !important;
+    height:38px !important;
+    flex-basis:38px !important;
+    border-radius:12px !important;
+  }
+
+  .site-header .language-switch,
+  .site-header .mini-action,
+  .site-header .member-cta{
+    width:34px !important;
+    height:34px !important;
+    min-width:34px !important;
+  }
+
+  #mainNav{
+    top:70px !important;
+    right:6px !important;
+    left:6px !important;
+  }
+
+  .hero-grid{
+    min-height:585px !important;
+  }
+
+  .hero-copy{
+    padding:48px 0 30px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(35px,10.4vw,47px) !important;
+    line-height:1.14 !important;
+  }
+
+  .hero-lead{
+    font-size:11.75px !important;
+    line-height:1.9 !important;
+  }
+
+  .hero-actions{
+    margin-top:18px !important;
+  }
+
+  .hero-proof{
+    margin-top:16px !important;
+  }
+}
+
+@media (max-width:380px){
+  .site-header .brand{
+    max-width:126px !important;
+  }
+
+  .site-header .brand::before{
+    flex-basis:31px !important;
+    width:31px !important;
+    height:31px !important;
+  }
+
+  .site-header .brand strong{
+    font-size:13px !important;
+  }
+
+  #navToggle{
+    width:36px !important;
+    height:36px !important;
+    flex-basis:36px !important;
+  }
+
+  .site-header .language-switch,
+  .site-header .mini-action,
+  .site-header .member-cta{
+    width:32px !important;
+    height:32px !important;
+    min-width:32px !important;
+  }
+
+  .hero-grid{
+    min-height:560px !important;
+  }
+
+  .hero-copy{
+    padding-top:42px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(32px,10.3vw,43px) !important;
+  }
+}
