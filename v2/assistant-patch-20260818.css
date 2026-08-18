@@ -1,0 +1,339 @@
+@import url("./styles-base-20260818.css");
+
+/* =========================================================
+   ZAD ENGLISH — ASSISTANT FINAL PATCH
+   2026-08-18
+   Scope: English only. Keeps Arabic untouched.
+========================================================= */
+
+/* Desktop / laptop: quick actions live inside the assistant header */
+@media (min-width:761px){
+  html[dir="ltr"] .assistant-panel{
+    isolation:isolate !important;
+  }
+
+  html[dir="ltr"] .assistant-head > div{
+    min-width:0 !important;
+    max-width:220px !important;
+    flex:0 1 220px !important;
+  }
+
+  html[dir="ltr"] .assistant-head span{
+    min-width:0 !important;
+  }
+
+  html[dir="ltr"] .assistant-head b,
+  html[dir="ltr"] .assistant-head small{
+    white-space:nowrap !important;
+  }
+
+  html[dir="ltr"] .assistant-body .assistant-quick{
+    position:absolute !important;
+    top:20px !important;
+    left:238px !important;
+    right:62px !important;
+    z-index:20 !important;
+
+    width:auto !important;
+    max-width:none !important;
+
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:7px !important;
+
+    margin:0 !important;
+    padding:0 !important;
+
+    transform:none !important;
+    overflow:visible !important;
+  }
+
+  html[dir="ltr"] .assistant-body .assistant-quick button{
+    width:100% !important;
+    min-width:0 !important;
+    min-height:40px !important;
+
+    padding:0 8px !important;
+    margin:0 !important;
+
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+
+    font-size:8.4px !important;
+    line-height:1.15 !important;
+    font-weight:800 !important;
+
+    color:#effffb !important;
+    border:1px solid rgba(175,255,240,.20) !important;
+    background:rgba(255,255,255,.075) !important;
+    backdrop-filter:blur(10px) !important;
+    -webkit-backdrop-filter:blur(10px) !important;
+  }
+
+  html[dir="ltr"] #assistantClose{
+    position:relative !important;
+    z-index:30 !important;
+    margin-left:10px !important;
+  }
+
+  html[dir="ltr"] .assistant-welcome{
+    margin-top:0 !important;
+  }
+}
+
+/* Tablet: keep the action row compact and above the conversation */
+@media (min-width:621px) and (max-width:760px){
+  html[dir="ltr"] .assistant-panel{
+    width:calc(100vw - 24px) !important;
+    right:12px !important;
+    left:12px !important;
+  }
+
+  html[dir="ltr"] .assistant-body{
+    position:relative !important;
+    padding-top:68px !important;
+  }
+
+  html[dir="ltr"] .assistant-body .assistant-quick{
+    position:absolute !important;
+    top:12px !important;
+    left:14px !important;
+    right:14px !important;
+
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:7px !important;
+
+    width:auto !important;
+    margin:0 !important;
+  }
+
+  html[dir="ltr"] .assistant-body .assistant-quick button{
+    width:100% !important;
+    min-width:0 !important;
+    min-height:40px !important;
+    padding:5px 6px !important;
+    font-size:8px !important;
+    white-space:normal !important;
+    line-height:1.2 !important;
+  }
+}
+
+/* Real phones: stable fullscreen assistant with no overlap */
+@media (max-width:620px){
+  html[dir="ltr"] .assistant-panel{
+    inset:0 !important;
+    right:0 !important;
+    left:0 !important;
+    top:0 !important;
+    bottom:0 !important;
+
+    width:100vw !important;
+    max-width:none !important;
+    height:100dvh !important;
+    max-height:none !important;
+
+    margin:0 !important;
+    border:0 !important;
+    border-radius:0 !important;
+
+    z-index:4000 !important;
+
+    display:grid !important;
+    grid-template-rows:auto minmax(0,1fr) auto !important;
+
+    background:
+      radial-gradient(circle at 82% 7%,rgba(43,230,195,.12),transparent 27%),
+      linear-gradient(180deg,#073c3c 0%,#042b30 34%,#02181c 100%) !important;
+  }
+
+  html[dir="ltr"] .assistant-head{
+    min-height:72px !important;
+    height:auto !important;
+
+    padding:
+      max(8px,env(safe-area-inset-top))
+      12px 8px !important;
+
+    gap:8px !important;
+
+    background:
+      linear-gradient(110deg,rgba(13,95,86,.99),rgba(8,68,65,.99)) !important;
+  }
+
+  html[dir="ltr"] .assistant-head > div{
+    min-width:0 !important;
+    flex:1 1 auto !important;
+  }
+
+  html[dir="ltr"] .assistant-head img{
+    width:42px !important;
+    height:42px !important;
+    flex:0 0 42px !important;
+  }
+
+  html[dir="ltr"] .assistant-head span{
+    min-width:0 !important;
+  }
+
+  html[dir="ltr"] .assistant-head b{
+    font-size:11px !important;
+    line-height:1.25 !important;
+    white-space:nowrap !important;
+  }
+
+  html[dir="ltr"] .assistant-head small{
+    font-size:6.5px !important;
+    white-space:nowrap !important;
+  }
+
+  html[dir="ltr"] #assistantClose{
+    width:38px !important;
+    height:38px !important;
+    flex:0 0 38px !important;
+    margin:0 !important;
+
+    display:grid !important;
+    place-items:center !important;
+
+    border-radius:12px !important;
+    background:rgba(255,255,255,.055) !important;
+  }
+
+  html[dir="ltr"] .assistant-body{
+    position:relative !important;
+
+    display:block !important;
+
+    min-height:0 !important;
+    max-height:none !important;
+
+    overflow-y:auto !important;
+    overscroll-behavior:contain !important;
+
+    padding:66px 12px 18px !important;
+  }
+
+  html[dir="ltr"] .assistant-body .assistant-quick{
+    position:absolute !important;
+    top:10px !important;
+    left:10px !important;
+    right:10px !important;
+    inset-block-end:auto !important;
+
+    z-index:10 !important;
+
+    width:auto !important;
+    max-width:none !important;
+
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:6px !important;
+
+    margin:0 !important;
+    padding:0 !important;
+
+    transform:none !important;
+  }
+
+  html[dir="ltr"] .assistant-body .assistant-quick button{
+    width:100% !important;
+    min-width:0 !important;
+    min-height:40px !important;
+
+    padding:5px 4px !important;
+
+    white-space:normal !important;
+    overflow:hidden !important;
+
+    font-size:7.6px !important;
+    line-height:1.18 !important;
+    font-weight:800 !important;
+
+    color:#effffb !important;
+    background:rgba(8,96,88,.76) !important;
+    border:1px solid rgba(153,255,236,.18) !important;
+    border-radius:12px !important;
+  }
+
+  html[dir="ltr"] .assistant-welcome{
+    margin:0 !important;
+    padding:15px !important;
+
+    direction:ltr !important;
+    text-align:left !important;
+
+    font-size:11.5px !important;
+    line-height:1.75 !important;
+  }
+
+  html[dir="ltr"] .assistant-messages{
+    margin-top:12px !important;
+    padding-bottom:8px !important;
+  }
+
+  html[dir="ltr"] .assistant-compose{
+    position:relative !important;
+
+    grid-template-columns:minmax(0,1fr) 48px !important;
+    gap:8px !important;
+
+    padding:
+      10px 10px
+      calc(10px + env(safe-area-inset-bottom)) !important;
+
+    background:rgba(1,20,23,.97) !important;
+    border-top:1px solid rgba(99,235,217,.12) !important;
+  }
+
+  html[dir="ltr"] .assistant-compose input{
+    width:100% !important;
+    min-width:0 !important;
+    min-height:48px !important;
+
+    padding:0 12px !important;
+
+    font-size:16px !important;
+    direction:ltr !important;
+    text-align:left !important;
+  }
+
+  html[dir="ltr"] .assistant-compose button{
+    width:48px !important;
+    height:48px !important;
+  }
+
+  /* The site bottom bar must not sit on top of an open fullscreen chat */
+  body:has(html[dir="ltr"] .assistant-panel.open) .mobile-quick-bar{
+    display:none !important;
+  }
+
+  html[dir="ltr"] body:has(.assistant-panel.open) .mobile-quick-bar{
+    display:none !important;
+  }
+
+  html[dir="ltr"] body:has(.assistant-panel.open){
+    overflow:hidden !important;
+  }
+}
+
+@media (max-width:380px){
+  html[dir="ltr"] .assistant-head b{
+    font-size:10px !important;
+  }
+
+  html[dir="ltr"] .assistant-head small{
+    font-size:5.8px !important;
+  }
+
+  html[dir="ltr"] .assistant-body{
+    padding-top:64px !important;
+  }
+
+  html[dir="ltr"] .assistant-body .assistant-quick button{
+    min-height:38px !important;
+    font-size:7px !important;
+    padding-inline:3px !important;
+  }
+}
