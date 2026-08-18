@@ -1,0 +1,12 @@
+/* Mobile hero focal-point adjustment: show more of the building, less sky. */
+@media (max-width:620px){
+  .hero{
+    background-position:center 72% !important;
+  }
+}
+
+@media (max-width:380px){
+  .hero{
+    background-position:center 75% !important;
+  }
+}
