@@ -1,0 +1,146 @@
+/* =========================================================
+   ZAD — MOBILE HEADER ALIGNMENT FINAL
+   2026-08-18
+   Purpose: center header controls and render a reliable burger icon.
+========================================================= */
+
+@media (max-width:620px){
+  html[dir] .header-shell{
+    height:64px !important;
+    min-height:64px !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:6px !important;
+  }
+
+  html[dir] .site-header .brand,
+  html[dir] #navToggle,
+  html[dir] .site-header .language-switch,
+  html[dir] .site-header .mini-action,
+  html[dir] .site-header .member-cta{
+    align-self:center !important;
+    transform:none !important;
+  }
+
+  html[dir] .site-header .brand{
+    min-height:48px !important;
+    height:48px !important;
+    margin-block:0 !important;
+    display:flex !important;
+    align-items:center !important;
+  }
+
+  html[dir] .header-actions{
+    height:38px !important;
+    min-height:38px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:6px !important;
+    margin:0 !important;
+  }
+
+  html[dir] #navToggle{
+    position:relative !important;
+    display:grid !important;
+    place-items:center !important;
+    width:38px !important;
+    height:38px !important;
+    min-width:38px !important;
+    flex:0 0 38px !important;
+    padding:0 !important;
+    margin:0 !important;
+    border-radius:13px !important;
+    border:1px solid rgba(153,244,226,.34) !important;
+    background:linear-gradient(145deg,#0b756b,#04504f) !important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 4px 12px rgba(0,0,0,.18) !important;
+    overflow:hidden !important;
+  }
+
+  /* Old span rules conflict across legacy styles; draw the icon ourselves. */
+  html[dir] #navToggle span{
+    display:none !important;
+  }
+
+  html[dir] #navToggle::before{
+    content:"" !important;
+    display:block !important;
+    width:19px !important;
+    height:2px !important;
+    border-radius:999px !important;
+    background:#f3fffc !important;
+    box-shadow:0 -6px 0 #f3fffc,0 6px 0 #f3fffc !important;
+    transition:transform .18s ease,box-shadow .18s ease !important;
+  }
+
+  html[dir] #navToggle::after{
+    content:"" !important;
+    position:absolute !important;
+    width:19px !important;
+    height:2px !important;
+    border-radius:999px !important;
+    background:#f3fffc !important;
+    opacity:0 !important;
+    transform:rotate(-45deg) !important;
+    transition:opacity .18s ease !important;
+  }
+
+  html[dir] #navToggle[aria-expanded="true"]::before{
+    box-shadow:none !important;
+    transform:rotate(45deg) !important;
+  }
+
+  html[dir] #navToggle[aria-expanded="true"]::after{
+    opacity:1 !important;
+  }
+
+  html[dir] .site-header .language-switch,
+  html[dir] .site-header .mini-action,
+  html[dir] .site-header .member-cta{
+    width:38px !important;
+    height:38px !important;
+    min-width:38px !important;
+    flex:0 0 38px !important;
+    margin:0 !important;
+    padding:0 !important;
+    border-radius:13px !important;
+    display:grid !important;
+    place-items:center !important;
+  }
+}
+
+@media (max-width:390px){
+  html[dir] .header-shell{
+    width:calc(100% - 8px) !important;
+    margin-inline:4px !important;
+    gap:5px !important;
+  }
+
+  html[dir="rtl"] .site-header .brand{
+    max-width:198px !important;
+    flex:1 1 198px !important;
+    margin:0 !important;
+  }
+
+  html[dir="ltr"] .site-header .brand{
+    max-width:154px !important;
+    flex:1 1 154px !important;
+    margin:0 !important;
+  }
+
+  html[dir] #navToggle,
+  html[dir] .site-header .language-switch,
+  html[dir] .site-header .mini-action,
+  html[dir] .site-header .member-cta{
+    width:36px !important;
+    height:36px !important;
+    min-width:36px !important;
+    flex-basis:36px !important;
+  }
+
+  html[dir] .header-actions{
+    height:36px !important;
+    min-height:36px !important;
+    gap:5px !important;
+  }
+}
