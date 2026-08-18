@@ -1,0 +1,40 @@
+/* =========================================================
+   ZAD — MOBILE SERVICE CARD CTA SPACING FIX
+   2026-08-18
+   Scope: mobile only. Arabic + English.
+   Keeps desktop untouched.
+========================================================= */
+
+@media (max-width:620px){
+  html[dir] .service-card{
+    position:relative !important;
+    padding:22px 18px 64px !important;
+  }
+
+  html[dir] .service-card p{
+    margin:0 !important;
+    padding:0 !important;
+    line-height:1.8 !important;
+  }
+
+  html[dir] .service-card > a{
+    position:absolute !important;
+    bottom:14px !important;
+    width:34px !important;
+    height:34px !important;
+    display:grid !important;
+    place-items:center !important;
+    margin:0 !important;
+    z-index:2 !important;
+  }
+
+  html[dir="rtl"] .service-card > a{
+    left:14px !important;
+    right:auto !important;
+  }
+
+  html[dir="ltr"] .service-card > a{
+    right:14px !important;
+    left:auto !important;
+  }
+}
