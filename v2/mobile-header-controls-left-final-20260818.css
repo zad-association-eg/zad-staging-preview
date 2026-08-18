@@ -1,0 +1,26 @@
+/* =========================================================
+   ZAD — ARABIC MOBILE HEADER CONTROL GROUP
+   2026-08-18
+   Keep identity card on the right and push burger/language/member
+   together to the left without changing their approved sizes.
+========================================================= */
+
+@media (max-width:620px){
+  html[dir="rtl"] .header-shell{
+    justify-content:flex-start !important;
+  }
+
+  /* In RTL flex flow this auto start-margin opens the space
+     between the brand and the three controls, pushing the full
+     control cluster to the physical left edge. */
+  html[dir="rtl"] #navToggle{
+    margin-inline-start:auto !important;
+    margin-inline-end:0 !important;
+  }
+
+  html[dir="rtl"] .header-actions{
+    margin:0 !important;
+    direction:rtl !important;
+    flex:0 0 auto !important;
+  }
+}
