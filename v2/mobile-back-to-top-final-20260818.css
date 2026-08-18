@@ -1,0 +1,72 @@
+/* =========================================================
+   ZAD — MOBILE BACK TO TOP FINAL
+   2026-08-18
+   Scope: mobile only, Arabic + English.
+   Re-enables the existing back-to-top control above the fixed bottom bar.
+========================================================= */
+
+@media (max-width:620px){
+  html[dir] .back-to-top{
+    position:fixed !important;
+    right:14px !important;
+    left:auto !important;
+    bottom:72px !important;
+    z-index:96 !important;
+
+    width:42px !important;
+    height:42px !important;
+    min-width:42px !important;
+    min-height:42px !important;
+    padding:0 !important;
+    margin:0 !important;
+
+    display:grid !important;
+    place-items:center !important;
+
+    border:1px solid rgba(230,197,107,.42) !important;
+    border-radius:14px !important;
+    background:linear-gradient(145deg,#0b756b,#04504f) !important;
+    color:#f4fffc !important;
+    -webkit-text-fill-color:#f4fffc !important;
+
+    font-size:20px !important;
+    line-height:1 !important;
+    font-weight:800 !important;
+
+    box-shadow:
+      0 8px 20px rgba(0,0,0,.26),
+      inset 0 1px 0 rgba(255,255,255,.10) !important;
+
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:none !important;
+
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    transition:transform .16s ease,background .16s ease,border-color .16s ease !important;
+  }
+
+  html[dir] .back-to-top:active{
+    transform:translateY(1px) scale(.97) !important;
+  }
+
+  body:has(.assistant-panel.open) .back-to-top{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+  }
+}
+
+@media (max-width:380px){
+  html[dir] .back-to-top{
+    right:11px !important;
+    bottom:69px !important;
+    width:40px !important;
+    height:40px !important;
+    min-width:40px !important;
+    min-height:40px !important;
+    border-radius:13px !important;
+    font-size:19px !important;
+  }
+}
